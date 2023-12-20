@@ -4,7 +4,7 @@
   "description": "This application is a virtual simulation of the NVIS425A Battery Characterstics Training System.",
   "main": "src/main.js",
   "author": "NVIS",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "electron src/main.js",
     "pack": "electron-builder --dir",
@@ -24,21 +24,28 @@
     "appId": "com.nvis.ev-simtel",
     "productName": "EV-SIMTEL",
     "win": {
-      "icon": "src/shared/img/nvisLogo.ico",
       "target": [
         {
-          "target": "msi",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
         }
-      ]
+      ],
+      "icon": "icon.ico"
     },
-    "mac": {
-      "target": "dmg",
-      "icon": "src/shared/img/nvisLogo.icns"
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "EV-SIMTEL Uninstaller",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": true
     },
-    "files": ["**/*", "assets/**/*", "!**/*.map"]
+    "asarUnpack": [
+      "node_modules/serialport/**"
+    ],
+    "npmRebuild": true,
+    "files": ["**/*",
+              "!**/*.map",
+              "node_modules/chart.js/**/*"]
   }   
 }

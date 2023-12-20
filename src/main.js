@@ -15,7 +15,10 @@ function createWindow() {
 
   // mainWindow.setMenu(null);
 
-  mainWindow.loadFile('index.html');
+  mainWindow.loadFile(path.join(__dirname, 'index.html')).catch(err => {
+    console.error('Failed to load index.html:', err);
+  });
+  
 
   mainWindow.on('closed', function () {
     mainWindow = null;
