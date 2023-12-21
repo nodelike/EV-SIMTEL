@@ -1,9 +1,30 @@
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInFromBottom {
+  from {
+      top: 105px;
+      opacity: 0;
+  }
+  to {
+      top: -25px;
+      opacity: 1;
+  }
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
   height: 100vh; /* Ensure full height */
+  overflow: hidden;
 }
 header {
   display: flex;
@@ -70,6 +91,62 @@ header {
   border: 2px solid black;
 }
 
+#sim-title{
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  bottom: 90px;
+  z-index: 1;
+  font-size: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000f0c;
+}
+
+
+#sim-start{
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  bottom: 40px;
+  z-index: 1;
+  left: 50%;
+  text-decoration: none;
+  color: #000f0c;
+  font-weight: bold;
+  transform: translateX(-50%);
+  padding: 10px 50px;
+  border: 2px solid #000f0c;
+  border-radius: 24px;
+  transition: 0.2s ease-in-out;
+}
+
+#sim-start:hover{
+  background: #000f0c;
+  color: white;
+
+}
+
+
+#logo {
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  height: 50px;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+.sims-container {
+  margin-top: 450px;
+  margin-left: 20px;
+  z-index: 1;
+}
+
 .simLinkButton {
   background: #007BFF;
   border: none;
@@ -81,11 +158,30 @@ header {
   cursor: pointer;
 }
 
+
+.banner-container{
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  height: 105%;
+  z-index: 0;
+  margin: 0 auto;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.banner-container img{
+  height: 100%;
+}
+
 #app {
   display: flex;
   flex: 1; /* Take up remaining height */
   overflow: hidden;
   background: #c9c9c9;
+  justify-content: space-between;
 }
 
 
