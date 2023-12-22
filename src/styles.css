@@ -9,11 +9,11 @@
 
 @keyframes fadeInFromBottom {
   from {
-      top: 105px;
+      bottom: -40px;
       opacity: 0;
   }
   to {
-      top: -25px;
+      bottom: 40px;
       opacity: 1;
   }
 }
@@ -77,18 +77,16 @@ header {
   width: 20px;
   left: 415px;
   top: 20px;
-  filter: invert(1);
   background: white;
   padding: 8px;
   border-radius: 50%;
-  box-shadow: 5px 5px 10px white;
-  border: 2px solid white;
+  border: 2px solid black;
+  transition: 0.2s ease-in-out;
 }
 
 .back-btn:hover {
-  filter: invert(0);
-  box-shadow: 5px 5px 10px black;
-  border: 2px solid black;
+  filter: invert(1);
+  border: 2px solid white;
 }
 
 #sim-title{
@@ -98,7 +96,7 @@ header {
   position: absolute;
   bottom: 90px;
   z-index: 1;
-  font-size: 22px;
+  font-size: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: #000f0c;
@@ -106,7 +104,7 @@ header {
 
 
 #sim-start{
-  animation-name: fadeIn;
+  animation-name: fadeInFromBottom;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   position: absolute;
@@ -116,6 +114,7 @@ header {
   text-decoration: none;
   color: #000f0c;
   font-weight: bold;
+  font-size: 14px;
   transform: translateX(-50%);
   padding: 10px 50px;
   border: 2px solid #000f0c;
@@ -128,6 +127,8 @@ header {
   color: white;
 
 }
+
+
 
 
 #logo {

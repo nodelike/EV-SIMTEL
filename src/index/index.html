@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <img id="header-logo" src="../shared/img/logo.png" alt="Logo">
+    </div>
+    <div id="header-title">Regenerative Charging and Braking System</div>
+  </header>
+  <a href="../home.html"><img src="../shared/img/back.png" alt="back" class="back-btn"></a>
+  <div class="app">
+    <div class="menu-column" id="left-menu">
+      <ul>
+        <li class="menuItem" id="item1" onclick="showSubItems('subItem1', 'item1')">Battery Management Systems</li>
+        <li class="menuItem" id="item2" onclick="showSubItems('subItem2', 'item2')">Motor Drives</li>
+        <li class="menuItem" id="item3" onclick="showSubItems('subItem3', 'item3')">General Concepts</li>
+        <li class="menuItem" id="item4" onclick="showSubItems('subItem4', 'item4')">Power Electronics</li>
+      </ul>
+    </div>
+    <div class="menu-column" id="right-menu">
+      <div id="subItem1" class="sub-menu">
+        <ol>
+          <li>Lead-Acid Battery characteristics training system</li>
+          <li>Lithium-Ion Battery characteristics training system</li>
+          <li>Lithium Iron Phosphate Battery characteristics training system</li>
+          <li>Lithium Polymer Battery characteristics training system</li>
+          <li>L1-L2-L3 Charger</li>
+        </ol>
+      </div>
+      <div id="subItem2" class="sub-menu">
+        <ol>
+          <li>PMSM Motor Training System</li>
+          <li>PMDC Motor Training System</li>
+          <li>BLDC Motor Training System</li>
+          <li>Three Phase Induction Motor Training System</li>
+          <li>DC Series Machine Lab</li>
+          <li>SRM</li>
+        </ol>
+      </div>
+      <div id="subItem3" class="sub-menu">
+        <ol>
+          <li>Battery Management Training System</li>
+          <li>Regen: 438Q</li>
+          <li>Regenerative Charging and Braking Training System</li>
+          <li>4 QPS</li>
+          <li>CAN</li>
+        </ol>
+      </div>
+      <div id="subItem4" class="sub-menu">
+        <ol>
+          <li></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+#left-menu{
+  width: 30%;
+  background: white;
+  margin: 25px;
+  border: 2px solid black;
+  border-radius: 14px;
+  padding: 15px;
+}
+
+#left-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#left-menu li {
+  list-style: none;
+  margin: 20px 0;
+  padding: 15px;
+  border: 2px solid black;
+  border-radius: 24px;
+  text-align: center;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#left-menu li:hover, #left-menu li.active {
+  color: white;
+  background: #00988e;
+}
+
+#right-menu{
+  width: 80%;
+  margin-right: 25px;
+  background: white;
+  margin: 25px 25px 25px 0;
+  border: 2px solid black;
+  border-radius: 14px;
+  padding: 15px;
+}
+
+.sub-menu {
+  display: none; /* Initially hide sub-menus */
+}
+
+.app {
+  display: flex;
+  flex: 1; /* Take up remaining height */
+  overflow: hidden;
+  background: #c9c9c9;
+  justify-content: space-evenly;
+}
