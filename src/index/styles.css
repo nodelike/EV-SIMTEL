@@ -58,6 +58,7 @@
 
 .sub-menu {
   display: none; /* Initially hide sub-menus */
+  transition: 0.2s ease-in-out;
 }
 
 .app {

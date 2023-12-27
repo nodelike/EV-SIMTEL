@@ -4,8 +4,6 @@ let voltageChart;
 let currentVoltage = 0;
 
 function drawLines() {
-   // Drawing the circuit
-  //SMPS to Parameter
   var smpsPositionXL = document.getElementById('smpsLabel').getBoundingClientRect().left + window.scrollX;
   var smpsPositionY = document.getElementById('smpsLabel').getBoundingClientRect().top + window.scrollY;
   var smpsPositionXR = document.getElementById('smpsLabel').getBoundingClientRect().right + window.scrollX;
@@ -96,7 +94,6 @@ function drawLines() {
   document.getElementById('load-paramText').setAttribute('x', paramPositionXR + 70);
   document.getElementById('load-paramText').setAttribute('y', (paramPositionYT + paramPositionYB + 10) / 2);
 
-  //Charges Positions
   document.getElementById('smps-paramPos').setAttribute('x', paramPositionX - 15);
   document.getElementById('smps-paramPos').setAttribute('y', paramPositionYT - 10);
   document.getElementById('smps-paramNeg').setAttribute('x', paramPositionX - 15);
@@ -120,18 +117,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let isPowerOn = false;
   let intervalId;
-  let batteryLevel = 0; // Start with an empty battery
+  let batteryLevel = 0;
 
-  const batteryDischargeRate = 0.5; // Percent per second
-  const batteryChargeRate = 10; // Percent per second
+  const batteryDischargeRate = 0.5;
+  const batteryChargeRate = 10;
   const maxBatteryLevel = 100;
-  const voltageCoefficient = 12.2 / maxBatteryLevel; // To calculate voltage based on battery level
+  const voltageCoefficient = 12.2 / maxBatteryLevel;
 
   const ammeter = new JustGage({
     id: 'ammeter',
-    value: 0, // Start with 0A
+    value: 0,
     min: 0,
-    max: 100, // Set this to a maximum current you expect
+    max: 100,
     title: 'Current',
     label: 'A',
     labelFontColor: '#000',
@@ -140,10 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
     pointer: true
   });
 
-  // Initialize the voltmeter with a value of 0 because the power is off
   const voltmeter = new JustGage({
     id: 'voltmeter',
-    value: 0, // Start with 0V
+    value: 0,
     min: 0,
     max: 20,
     title: 'Voltage',
@@ -173,8 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
         xAxes: [{
           type: 'realtime',
           realtime: {
-            duration: 20000,  // data in the past 20000 ms will be displayed
-            refresh: 1000,    // on-screen refresh rate of 1000 ms
+            duration: 20000, 
+            refresh: 1000, 
           }
         }],
         yAxes: [{
@@ -192,9 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const voltage = batteryLevel * voltageCoefficient;
     const lightsOn = document.querySelectorAll('.lightButton.active').length;
     
-    // Calculate the total power consumed by the lights
-    const totalPower = lightsOn * 21; // Assuming each light consumes 21W
-    const current = voltage > 0 ? totalPower / voltage : 0; // Avoid division by zero
+    const totalPower = lightsOn * 21;
+    const current = voltage > 0 ? totalPower / voltage : 0;
     
     ammeter.refresh(current);
   }
@@ -204,23 +199,22 @@ document.addEventListener('DOMContentLoaded', () => {
     timeData.push(now);
     voltageData.push(currentVoltage);
     voltageChart.update();
-  }, 500); // 500 ms interval
+  }, 500);
 
-  // Function to update the voltmeter based on the current battery level
   function updateVoltmeter() {
     currentVoltage = batteryLevel * voltageCoefficient;
     voltmeter.refresh(currentVoltage);
-    updateAmmeter(); // Update the ammeter at the same time
+    updateAmmeter();
   }
 
   function updateStats() {
     const voltage = batteryLevel * voltageCoefficient;
     const lightsOn = document.querySelectorAll('.lightButton.active').length;
-    const totalPower = lightsOn * 21; // Assuming each light consumes 21W
+    const totalPower = lightsOn * 21;
     const current = voltage > 0 ? totalPower / voltage : 0;
     
-    const soc = batteryLevel; // Assuming SOC is directly proportional to battery level
-    const dod = 100 - soc; // DOD is the complement of SOC
+    const soc = batteryLevel;
+    const dod = 100 - soc;
   
     document.getElementById('voltageStat').textContent = `Voltage: ${voltage.toFixed(2)}V`;
     document.getElementById('currentStat').textContent = `Current: ${current.toFixed(2)}A`;
@@ -228,97 +222,86 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('dodStat').textContent = `DOD: ${dod.toFixed(2)}%`;
   }
   
-
-  // Function to update the battery level and progress bar
   function updateBatteryLevel(delta) {
     batteryLevel += delta;
-    batteryLevel = Math.max(0, Math.min(maxBatteryLevel, batteryLevel)); // Keep battery level within bounds
+    batteryLevel = Math.max(0, Math.min(maxBatteryLevel, batteryLevel));
     progressBar.style.width = `${batteryLevel}%`;
     updateVoltmeter();
     updateStats();
   }
 
-  // Event listener for the power button
   powerButton.addEventListener('click', () => {
     isPowerOn = !isPowerOn;
     powerButton.style.backgroundColor = isPowerOn ? 'red' : 'white';
     powerButton.style.color = isPowerOn ? 'white' : 'red';
-    document.getElementById("batteryStat").textContent = isPowerOn ? 'Battery Status: Charging' : 'Battery Status: Not Charging';
+    document.getElementById("batteryStat").textContent = isPowerOn ? 'Battery Status: Charging' : 'Battery Status: Idle';
+    document.getElementById("batteryStat").style.color = isPowerOn ? 'green' : 'orange';
     managePowerState();
   });
 
-  // Function to manage power state and battery charging/discharging
   function managePowerState() {
-    clearInterval(intervalId); // Clear any existing interval
+    clearInterval(intervalId);
 
     if (isPowerOn) {
       intervalId = setInterval(() => {
-        // Charge the battery if no lights are active
         updateBatteryLevel(batteryChargeRate / 10);
-        // Check for battery full
         if (batteryLevel >= maxBatteryLevel) {
           batteryLevel = maxBatteryLevel;
           clearInterval(intervalId);
           alert('Battery charged to 100%');
         }
-      }, 100); // Update 10 times per second
+      }, 100);
     } else {
-      updateVoltmeter(); // Update voltmeter to 0 when power is off
+      updateVoltmeter();
     }
     updateStats();
   }
 
-  // Function to manage light state and battery discharging
+
   function manageLightState() {
-    clearInterval(intervalId); // Clear any existing interval
+    clearInterval(intervalId);
 
     intervalId = setInterval(() => {
         const lightsOn = document.querySelectorAll('.lightButton.active').length;
         if (lightsOn > 0) {
             updateBatteryLevel(-batteryDischargeRate * lightsOn / 10);
             document.getElementById("batteryStat").textContent = 'Battery Status: Discharging';
+            document.getElementById("batteryStat").style.color = 'red';
         } else if (isPowerOn) {
             updateBatteryLevel(batteryChargeRate / 10);
         } else{
           document.getElementById("batteryStat").textContent = 'Battery Status: Idle';
+          document.getElementById("batteryStat").style.color = 'orange';
         } 
-        // Check for battery empty
         if (batteryLevel <= 0) {
             batteryLevel = 0;
             clearInterval(intervalId);
             alert('Battery empty');
-            lightButtons.forEach(button => button.classList.remove('active')); // Turn off all lights
+            lightButtons.forEach(button => button.classList.remove('active'));
         }
-    }, 100); // Update 10 times per second
+    }, 100);
 
-    updateAmmeter(); // Update the ammeter reading here
+    updateAmmeter();
     updateStats();
   }
 
   lightButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
         console.log("Light Clicked");
-        // Toggle the 'active' class for the button
         const isLightOn = button.classList.toggle('active');
 
-        // Select the corresponding image
         const lightImg = document.getElementById(`lightImg${index + 1}`);
-      
-        // Set the image source based on the button state
+
         if (lightImg) {
             lightImg.src = isLightOn ? 'img/lighton.png' : 'img/lightoff.png';
         }
 
-        
-
-        // Call manageLightState to handle light state change
         manageLightState();
     });
   });
 
-  // Initialize the progress bar and voltmeter at start
-  progressBar.style.width = '0%'; // Start with an empty progress bar
-  updateVoltmeter(); // Start with the voltmeter at 0V
+  progressBar.style.width = '0%';
+  updateVoltmeter();
   updateStats();
   drawLines();
 });
