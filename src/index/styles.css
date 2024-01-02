@@ -14,10 +14,16 @@
   padding: 0;
 }
 
-#left-menu .menuItem {
+#left-menu ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
   list-style: none;
   margin: 20px 0;
-  padding: 15px;
+  padding: 10px 15px;
   border: 2px solid black;
   border-radius: 24px;
   text-align: center;
@@ -26,9 +32,13 @@
   font-weight: bold;
 }
 
-#left-menu li:hover, #left-menu li.active {
-  color: white;
+.menuItem:hover, .menuItem.active {
   background: #00988e;
+  color: white;
+}
+
+.menuItem.active {
+  margin-bottom: 0;
 }
 
 #right-menu{
@@ -41,24 +51,33 @@
   padding: 15px;
 }
 
-#right-menu li {
-  font-weight: bold;
-  margin: 30px 0;
-  
-}
-
-#right-menu li a{
+.sub-menu a{
   text-decoration: none;
   color: black;
+
 }
 
-#right-menu li a:hover{
+.sub-menu li {
+  padding: 5px 15px;
+  transition: 0.2s ease;
+}
+
+.sub-menu li:hover{
   text-decoration: underline;
+  color: white;
 }
 
 .sub-menu {
-  display: none; /* Initially hide sub-menus */
+  background: #00988e;
+  border: 2px solid;
+  border-top: 0;
+  display: none;
   transition: 0.2s ease-in-out;
+  margin: 0 20px;
+  padding: 10px 0;
+  border-radius: 0 0 20px 20px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .app {
