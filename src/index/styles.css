@@ -54,6 +54,12 @@
 .sub-menu a{
   text-decoration: none;
   color: black;
+  transition: 0.2s ease;
+}
+
+.sub-menu a:hover {
+  text-decoration: underline;
+  color: white;
 
 }
 
