@@ -1,9 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const pdfPath = 'assets/Introduction_of_Power_Electronics.pdf';
-
+function loadPdf(url){
     const pdfViewer = document.getElementById('pdf-viewer');
 
-    pdfjsLib.getDocument(pdfPath).promise.then(function (pdfDoc) {
+    pdfjsLib.getDocument(url).promise.then(function (pdfDoc) {
         const totalPages = pdfDoc.numPages;
 
         for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
@@ -26,5 +24,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }).catch(error => {
         console.error('Error loading PDF:', error);
     });
+}
 
+function componentActive(button){
+    var liElements = document.getElementById("left-menu").querySelectorAll('li');
+
+    liElements.forEach(function(li) {
+        li.classList.remove("active");
+    });
+    
+    button.classList.add("active");
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById("viewPdf").addEventListener("click", function(){
+        document.getElementById("introContent").style.display = "none"
+        document.getElementById("pdfContent").style.display = "block"
+    });
+
+    document.getElementById("exit-pdf").addEventListener("click", function(){
+        document.getElementById("introContent").style.display = "block";
+        document.getElementById("pdfContent").style.display = "none";
+        document.getElementById('pdf-viewer').innerHTML = '';
+    });
 });
