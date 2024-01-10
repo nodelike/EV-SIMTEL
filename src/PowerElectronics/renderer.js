@@ -32,7 +32,7 @@ function componentActive(button){
     liElements.forEach(function(li) {
         li.classList.remove("active");
     });
-    
+
     button.classList.add("active");
 }
 
