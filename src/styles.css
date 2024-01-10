@@ -35,8 +35,8 @@ header {
   background-color: #fff;
   color: black;
   /* padding: 10px; */
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .left-header {
@@ -44,7 +44,7 @@ header {
   display: flex;
   align-items: center;
   padding: 10px;
-  border-right: 2px solid #000; /* Right border for company name */
+  border-right: 1px solid #000; /* Right border for company name */
   margin-left: 50px /* Right border for company name */
 }
 

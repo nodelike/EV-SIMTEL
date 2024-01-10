@@ -1,0 +1,78 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.app{
+    display: flex;
+    height: 100%;
+}
+
+.main-panel{
+    width: 75%;
+}
+
+.side-panel {
+    width: 25%;
+    background: rgb(211, 211, 211);
+    color: black;
+    border-right: 1px solid rgb(46, 46, 46);
+}
+
+.side-panel ul{
+    padding: 0 25px;
+}
+.side-panel ul li{
+    list-style: none;
+    margin: 25px 0;
+    background: white;
+    padding: 10px 0;
+    border: 1px solid rgb(46, 46, 46);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s ease;
+    text-align: center;
+}
+
+.side-panel ul li:hover{
+    background: #00988e;
+    color: white;
+}
+
+#introContent {
+    text-align: center;
+}
+#introContent h4 {
+    margin-left: 20px;
+    text-align: left;
+}
+
+#introContent p {
+    margin: 0 auto;
+    width: 80%;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.powerRanger{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#pdf-viewer {
+    width: 60%;
+    display: flex;
+    margin: 20px;
+    border: 1px solid #ccc;
+    overflow-y:auto;
+    height: 450px;
+    flex-direction: column;
+}
+  
+#pdf-viewer canvas {
+    display: block;
+    border: 1px solid black;
+}
