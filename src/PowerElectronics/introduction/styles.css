@@ -77,51 +77,32 @@ a{
     justify-content: center;
 }
 
-
-.topicContent{
-    height: 100%;
+#enableSub {
+    margin-bottom: 0;
 }
 
-.topics-container{
-    margin: 30px 0;
-    padding: 0 100px;
-    display: flex;
-    justify-content: space-evenly;
+#introContent p {
+    margin: 0 auto;
+    width: 80%;
+    font-size: 17px;
 }
 
-.topics-container button{
-    color: white;
-    background: #00988e;
-    border: 1px solid black;
-    border-radius: 4px;
-    padding: 10px;
-    cursor: help;
-    transition: 0.2s ease;
+#introContentSection {
+    text-align: center;
 }
-
-.topics-container button:hover{
-    background: white;
-    color: black;
-}
-
-.topics-display{
-    width: 75%;
-    height: 45%;
-    border: 1px solid;
-    margin: 45px auto;
-}
-
-.topics-display p{
-    height: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0px 30px;
+#introContentSection h4 {
+    margin-left: 20px;
     text-align: left;
 }
 
+.powerRanger{
+    display: flex;
+    justify-content: center;
+}
+.viewpdf-btncontainer{
+    display: flex;
+    justify-content: left;
+}
 
 #pdfContent {
     display: none;
@@ -147,7 +128,7 @@ a{
     border: 2px solid white;
 }
 
-.viewPdf{
+#viewPdf{
     margin-left: 20px;
     font-size: 14px;
     padding: 8px 15px;

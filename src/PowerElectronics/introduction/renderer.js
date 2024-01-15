@@ -1,9 +1,5 @@
-var currentWindow = 'topic1Section'
-
 function loadPdf(url){
     const pdfViewer = document.getElementById('pdf-viewer');
-    document.getElementById(currentWindow).style.display = "none"
-    document.getElementById("pdfContent").style.display = "block"
 
     pdfjsLib.getDocument(url).promise.then(function (pdfDoc) {
         const totalPages = pdfDoc.numPages;
@@ -36,7 +32,7 @@ function componentActive(button){
     liElements.forEach(function(li) {
         li.classList.remove("active");
     });
-    currentWindow = button.id + "Section"
+
     button.classList.add("active");
     if(document.getElementById(button.id + "Section")){
         var childDivs = document.getElementById("right-menu").children;
@@ -49,18 +45,15 @@ function componentActive(button){
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById("viewPdf").addEventListener("click", function(){
+        document.getElementById("introContentSection").style.display = "none"
+        document.getElementById("pdfContent").style.display = "block"
+    });
+
     document.getElementById("exit-pdf").addEventListener("click", function(){
-        document.getElementById(currentWindow).style.display = "block";
+        document.getElementById("introContentSection").style.display = "block";
         document.getElementById("pdfContent").style.display = "none";
         document.getElementById('pdf-viewer').innerHTML = '';
     });
 });
 
-function showContent(index) {
-    const paragraphs = document.querySelectorAll('#' + currentWindow + ' .topics-display p');
-    paragraphs.forEach((paragraph, i) => {
-      paragraph.style.display = i === index ? 'flex' : 'none';
-      paragraph.style.color = i === index ? 'black' : 'white';
-    });
-    console.log(index);
-}

@@ -19,15 +19,45 @@
   <div class="app">
     <div class="side-panel" id="left-menu">
         <ul>
-            <li class="active" onclick="componentActive(this)">Turn-ON method of a Thryistor</li>
-            <li onclick="componentActive(this)" id="enableSub">Gate Triggering methods</li> 
-            <li onclick="componentActive(this)" id="enableSub">Turn-OFF method of a Thryistor</li>    
+            <li class="active" onclick="componentActive(this)" id="topic1">Turn-ON method of a Thryistor</li>
+            <li onclick="componentActive(this)" id="topic2">Gate Triggering methods</li> 
+            <li onclick="componentActive(this)" id="topic3">Turn-OFF method of a Thryistor</li>    
         </ul>
     </div>
     <div class="main-panel" id="right-menu">
-      <div id="introContent">
-            
-        <button id="viewPdf" onclick='loadPdf("assets/Introduction_of_Power_Electronics.pdf")'>View PDF</button>
+      <div class="topicContent" id="topic1Section">
+        <h3 style="text-align: center;">Turn-ON method of a Thryistor</h3>
+        <hr>
+        <p style="color: red; text-align: center; font-weight: normal;">Too see the details, move the mover over the labels/button</h4>
+        <div class="topics-container">
+          <button onmouseover="showContent(0)">DC Gate Triggering</button>
+          <button onmouseover="showContent(1)">Thermal Triggering</button>
+          <button onmouseover="showContent(2)">Light Triggering</button>
+          <button onmouseover="showContent(3)">dv/dt Triggering</button>
+        </div>
+        <div class="topics-display">
+          <p>When anode -to-cathode forward voltage is increased with gate circuit open, the reverse biased junction J2 will have an avalanche breakdown at a voltage called forward, breakover voltage VBO.  At this voltage, a thyristor changes from OFF state (high voltage with low leakage current) to ON-state characterized by a low voltage across it with large forward current. The forward voltage drop across the SCR during the ON state is of the order of 1to 1.5V and increases slightly with load current.</p>
+          <p>Like any other semiconductor, the width of the depletion layer of a thyristor decreases on increasing the junction temperature. Thus, in a thyristor when the voltage applied between the anode and cathode is very near to its breakdown voltage, the device can be triggered by increasing its junction temperature. By increasing the temperature to a certain value (within the specified �limit), a situation comes when the reverse biased junction collapses making the device conduct. This method of triggering the device by heating is known as the thermal triggering process.</p>
+          <p>In this method, as the name suggests, the energy is imparted by radiation. Thyristor is bombarded by energy particles such as neutrons or photons. With the help of this external energy, electron-hole pairs are generated in the device, thus increasing the number of charge carriers. This lead to instantaneous flow of current within the device and the triggering of the device. For radiation triggering to occur, the device must have high value of rate of change of voltage(dv/dt). Light activated silicon controlled rectifier (LASCR) and light activated silicon controlled switch (LASCS) are the exaples of this type of triggering.</p>
+          <p>We know that with forward voltage across the anode and cathode of a device, the junctions J1 and J3 are forward biased. Whereas the junction J2 becomes reverse biased. This reverse biased junction J2 has the characteristics of a capacitor due to charges existing across the junction. If a forward voltage is suddenly applied, a charging current will flow tending to turn the device ON. If the voltage impressed across the device is denoted by V, the charge by Q and the capacitance by Cj, then <br> ic = Dq/dt = d/dt (Cj V) = Cj dv/dt + V dCj/dt <br> The rate of change of junction capacitance may be negligible as the junction capacitance is almost constant. The contribution to charging current by the later term is negligible. Hence, Eq. reduces to <br> ic = Cj dV/dt <br>Therefore, if the rate of change of voltage across the device is large, the device may turn -on even through the voltage appearing across the device is small.</p>
+        </div>
+        <button class="viewPdf" onclick='loadPdf("assets/Turn–On.pdf")'>View PDF</button>
+      </div>
+      <div class="topicContent" id="topic2Section" style="display: none;">
+        <h3 style="text-align: center;">Gate Triggering Methods</h3>
+        <hr>
+        <p style="color: red; text-align: center; font-weight: normal;">Too see the details, move the mover over the labels/button</h4>
+        <div class="topics-container">
+          <button onmouseover="showContent(0)">DC Gate Triggering</button>
+          <button onmouseover="showContent(1)">AC Gate Triggering</button>
+          <button onmouseover="showContent(2)">Pulse Gate Triggering</button>
+        </div>
+        <div class="topics-display">
+          <p>In this type of triggering , a DC voltage of proper magnitude and polarity is applied between the gate and the cathode of the device in such a way that the gate becomes positive with respect to the cathode. When the applied voltage is sufficient to produce the required gate current , the device starts conducting. \n\tOne drawback of this scheme is that both the power and control circuit are DC and there is no isolation between the two another disadvantage of this process is that a continuous DC signal has to be applied, at the gate causing more gate power loss.</p>
+          <p>AC source is most commonly used for the gate signal in all application of thyristor control adopted for AC applications. This scheme provides the proper isolation between the power and the control circuits. The firing angle control is obtained vary conveniently by changing the phase angle of the control signal.\n\tHowever, the gate drive is maintained for one half cycle after the device is turned ON, and a reverse voltage is applied between the gate and the cathode during the negative half cycle. The drawback of this scheme is that a separate transformer is required to step down the AC supply, which adds to the cost.</p>
+          <p>In this method, as the name suggests, the energy is imparted by radiation. Thyristor is bombarded by energy particles such as neutrons or photons. With the help of this external energy, electron-hole pairs are generated in the device, thus increasing the number of charge carriers. This lead to instantaneous flow of current within the device and the triggering of the device. For radiation triggering to occur, the device must have high value of rate of change of voltage(dv/dt). Light activated silicon controlled rectifier (LASCR) and light activated silicon controlled switch (LASCS) are the exaples of this type of triggering.</p>
+        </div>
+        <button class="viewPdf" onclick='loadPdf("assets/Gate-Triggering.pdf")'>View PDF</button>
       </div>
       <div id="pdfContent">
         <img src="../shared/img/close.svg" alt="exit" id="exit-pdf">

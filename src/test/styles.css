@@ -1,0 +1,8 @@
+
+
+.topics-display p {
+    display: none;
+    color: white;
+    transition: 0.2s ease;
+}
+  

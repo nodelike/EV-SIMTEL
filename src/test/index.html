@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <img id="header-logo" src="../shared/img/logo.png" alt="Logo">
+    </div>
+    <div id="header-title">ELECTRIC VEHICLES LEARNING LAB</div>
+  </header>
+  <a href="../home.html"><img src="../shared/img/back.png" alt="back" class="back-btn"></a>
+  <div class="app">
+    <div class="parent">
+      <div class="parent">
+        <div class="topics-container">
+          <button onmouseover="showContent(0)">Forward Voltage Triggering</button>
+          <button onmouseover="showContent(1)">Thermal Triggering</button>
+          <button onmouseover="showContent(2)">Light Triggering</button>
+          <button onmouseover="showContent(3)">dv/dt Triggering</button>
+        </div>
+        <div class="topics-display">
+          <p>When anode -to-cathode forward voltage is increased with gate circuit open, the reverse biased junction J2 will have an avalanche breakdown at a voltage called forward, breakover voltage VBO.  At this voltage, a thyristor changes from OFF state (high voltage with low leakage current) to ON-state characterized by a low voltage across it with large forward current. The forward voltage drop across the SCR during the ON state is of the order of 1to 1.5V and increases slightly with load current.</p>
+          <p>Like any other semiconductor, the width of the depletion layer of a thyristor decreases on increasing the junction temperature. Thus, in a thyristor when the voltage applied between the anode and cathode is very near to its breakdown voltage, the device can be triggered by increasing its junction temperature. By increasing the temperature to a certain value (within the specified limit), a situation comes when the reverse biased junction collapses making the device conduct. This method of triggering the device by heating is known as the thermal triggering process.</p>
+          <p>In this method, as the name suggests, the energy is imparted by radiation. Thyristor is bombarded by energy particles such as neutrons or photons. With the help of this external energy, electron-hole pairs are generated in the device, thus increasing the number of charge carriers. This lead to instantaneous flow of current within the device and the triggering of the device. For radiation triggering to occur, the device must have high value of rate of change of voltage(dv/dt). Light activated silicon controlled rectifier (LASCR) and light activated silicon controlled switch (LASCS) are the exaples of this type of triggering.</p>
+          <p>We know that with forward voltage across the anode and cathode of a device, the junctions J1 and J3 are forward biased. Whereas the junction J2 becomes reverse biased. This reverse biased junction J2 has the characteristics of a capacitor due to charges existing across the junction. If a forward voltage is suddenly applied, a charging current will flow tending to turn the device ON. If the voltage impressed across the device is denoted by V, the charge by Q and the capacitance by Cj, then \n\n\t\tic = Dq/dt = d/dt (Cj V) = Cj dv/dt + V dCj/dt\n\n\tThe rate of change of junction capacitance may be negligible as the junction capacitance is almost constant. The contribution to charging current by the later term is negligible. Hence, Eq. reduces to \n\n\t\tic = Cj dV/dt\n\n\tTherefore, if the rate of change of voltage across the device is large, the device may turn -on even through the voltage appearing across the device is small.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
