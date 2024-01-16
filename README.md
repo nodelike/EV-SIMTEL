@@ -10,7 +10,7 @@ Virtual learning lab to learn about electric vehicles.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
-To be able to start development on NVIS438A-SIM, make sure that you have the following prerequisites installed: 
+To be able to start development on EV-SIMTEL, make sure that you have the following prerequisites installed: 
 
 - [Node.js](https://nodejs.org/en)
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
