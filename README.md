@@ -1,7 +1,7 @@
 
 # NVIS438A-SIM
 
-Virtual learning lab for to learn about electric vehicles. 
+Virtual learning lab to learn about electric vehicles. 
 
 <img align="center" src="pictures/overview.png" width="800">
 
