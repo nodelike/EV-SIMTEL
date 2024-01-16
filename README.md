@@ -1,7 +1,7 @@
 
 # NVIS438A-SIM
 
-Virtual simulation lab for the Battery Characteristics Training System(NVIS425A) module, which is a educational equipment developed by NVIS Technologies Pvt Ltd. 
+Virtual learning lab for to learn about electric vehicles. 
 
 <img align="center" src="pictures/overview.png" width="800">
 
@@ -29,7 +29,6 @@ Follow this instructions below to build the application:
 ```bash
 brew install node npm
 ```
-- Alternatively, download and install Node.js from [Node.js website](https://nodejs.org/).
  
 **2. Clone the repo:**
 ```bash
