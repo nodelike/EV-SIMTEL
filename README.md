@@ -32,12 +32,13 @@ brew install node npm
  
 **2. Clone the repo:**
 ```bash
-git clone https://github.com/SenpaiKishore/NVIS425A.git
-cd NVIS425A
+git clone git@github.com:SenpaiKishore/EV-SIMTEL.git
+cd EV-SIMTEL
 ```
 
 **3. Install NPM packages:**
 ```bash
+npm init
 npm install electron --save-dev
 ```
 
