@@ -39,7 +39,6 @@ cd EV-SIMTEL
 
 **3. Install NPM packages:**
 ```bash
-npm init
 npm install electron --save-dev
 ```
 
