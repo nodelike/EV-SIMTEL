@@ -21,7 +21,17 @@
         <ul>
             <li class="active" onclick="componentActive(this)" id="topic1">Turn-ON method of a Thryistor</li>
             <li onclick="componentActive(this)" id="topic2">Gate Triggering methods</li> 
-            <li onclick="componentActive(this)" id="topic3">Turn-OFF method of a Thryistor</li>    
+            <li style="margin-bottom: 0;" onclick="componentActive(this)">Turn-OFF method of a Thryistor</li>
+            <div id="subItem" class="sub-menu">
+              <ol>
+                <li id="topic3" onclick="componentActive(this)">Power Diode</li>
+                <li id="topic4" onclick="componentActive(this)">Shocklev Diode</li>
+                <li id="topic5" onclick="componentActive(this)">SCR</li>
+                <li id="topic6" onclick="componentActive(this)">Diac</li>
+                <li id="topic7" onclick="componentActive(this)">Triac</li>
+                <li id="topic8" onclick="componentActive(this)">Isolation Transformer</li>
+              </ol>
+            </div>    
         </ul>
     </div>
     <div class="main-panel" id="right-menu">
@@ -59,6 +69,19 @@
         </div>
         <button class="viewPdf" onclick='loadPdf("assets/Gate-Triggering.pdf")'>View PDF</button>
       </div>
+      <div class="topicContent" id="topic3Section" style="display: none;">
+        <h3 style="text-align: center; font-size: 22px;">Introduction of Commutation (Turn off Method)</h3>
+        <hr>
+        <div class="contentWrapper">
+          <p style="text-align: center; font-weight: normal;">Commutation is the process of turning Off, a conducting thyristor is
+            called Commutation</p>
+          <h4>Commutation are of two types: </h4>
+          <p><b style="color: blue;">(A) Natural Commutation: </b>In case of AC circuits, as the current passes through natural zero, a reverse voltage is simultaneously appeared across the device. The device is immediately turned off. This process is called as Natural Commutation and no external circuit is required for this purpose.</p>
+          <p><b style="color: blue;">(A) Forced Commutation: </b>In case of DC circuits, switching of thryistors, forward current should be forced to be zero by means of some external circuit. This process is called Forced Commutation and the ciruits which are used to turn off the thryistor are known as Commutation circuits.</p>
+        </div>
+        <button class="viewPdf" onclick='loadPdf("assets/COMMUTATION.pdf")'>View PDF</button>
+      </div>
+
       <div id="pdfContent">
         <img src="../shared/img/close.svg" alt="exit" id="exit-pdf">
         <div id="pdf-viewer"></div>
