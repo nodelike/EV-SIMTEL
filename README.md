@@ -1,5 +1,5 @@
 
-# NVIS438A-SIM
+# EV-SIMTEL
 
 Virtual learning lab to learn about electric vehicles. 
 
