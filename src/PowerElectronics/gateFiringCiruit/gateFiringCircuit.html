@@ -20,8 +20,11 @@
     <div class="side-panel" id="left-menu">
         <ul>
             <li class="active" onclick="componentActive(this)" id="topic1">General Firing Circuit for SCR</li>
-            <li onclick="componentActive(this)" id="topic2">Resistance Firing Circuit</li> 
+            <li onclick="componentActive(this)" id="topic2">Gate Triggering methods</li> 
             <li onclick="componentActive(this)" id="topic3">Turn-OFF method of a Thryistor</li>
+            <li onclick="componentActive(this)" id="topic6">Ramp Triggering</li> 
+            <li onclick="componentActive(this)" id="topic7">Ramp and Pedestal Triggering</li> 
+
         </ul>
     </div>
     <div class="main-panel" id="right-menu">
@@ -37,10 +40,10 @@
       </div>
 
       <div class="topicContent" id="topic2Section">
-        <h3 style="text-align: center;">Resistance Firing Circuit</h3>
+        <h3 style="text-align: center;">A General Firing Ciruit for SCR</h3>
         <hr>
         <div class="topics-display">
-          <img src="../assets/img/resistanceFiringCircuit.PNG" alt="resistanceFiringCircuit">
+          <img src="../assets/img/gateFiringCircuit.PNG" alt="gateFiringCircuit">
           <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>
         </div>
       </div>
@@ -55,6 +58,24 @@
           <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>
         </div>
       </div>
+      <div class="topicContent" id="topic6Section">
+        <h3 style="text-align: center;">Ramp Triggering</h3>
+        <hr>
+        <div class="topics-display">
+          <img src="../assets/img/RampTriggereing.png" alt="gateFiringCircuit">
+          <button class="viewPdf" onclick='loadPdf("../assets/RampTriggering.pdf")'>View PDF</button>
+        </div>
+      </div>
+
+      <div class="topicContent" id="topic7Section">
+        <h3 style="text-align: center;">Ramp And Pedestal Triggering</h3>
+        <hr>
+        <p style="margin: 2cap; font-size: large;">The UJT is often used as a trigger device for SCRs and TRIACs. Ramp and pedestal triggering is an improved version of synchronized UJT oscillator triggering.</p>
+        <div class="topics-display">
+          <img src="../assets/img/Ramp&Padestal.png" alt="gateFiringCircuit">
+          <button class="viewPdf" onclick='loadPdf("../assets/RampandPedestal.pdf")'>View PDF</button>
+        </div>
+      </div>
 
       <div id="pdfContent">
         <img src="../../shared/img/close.svg" alt="exit" id="exit-pdf">
@@ -62,6 +83,7 @@
       </div>
     </div>
   </div>
+  
   <script src="renderer.js"></script>
 </body>
 </html>
