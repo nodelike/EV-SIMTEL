@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+</head>
+<body >
+  <header>
+    <div class="left-header">
+      <img id="header-logo" src="../../shared/img/logo.png" alt="Logo">
+    </div>
+    <div id="header-title">ELECTRIC VEHICLES LEARNING LAB</div>
+  </header>
+  <a href="../../index/index.html"><img src="../../shared/img/back.png" alt="back" class="back-btn"></a>
+  <div class="app">
+    <div class="side-panel" id="left-menu">
+        <ul>
+            <li class="active" onclick="componentActive(this)" id="topic1">General Firing Circuit for SCR</li>
+            <li onclick="componentActive(this)" id="topic2">Gate Triggering methods</li> 
+            <li onclick="componentActive(this)" id="topic3">Turn-OFF method of a Thryistor</li>
+        </ul>
+    </div>
+    <div class="main-panel" id="right-menu">
+      
+
+      <div class="topicContent" id="topic1Section">
+        <h3 style="text-align: center;">A General Firing Ciruit for SCR</h3>
+        <hr>
+        <div class="topics-display">
+          <img src="../assets/img/gateFiringCircuit.PNG" alt="gateFiringCircuit">
+          <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>
+        </div>
+      </div>
+
+      <div class="topicContent" id="topic2Section">
+        <h3 style="text-align: center;">A General Firing Ciruit for SCR</h3>
+        <hr>
+        <div class="topics-display">
+          <img src="../assets/img/gateFiringCircuit.PNG" alt="gateFiringCircuit">
+          <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>
+        </div>
+      </div>
+      
+
+      <!-- Start from here  -->
+      <div class="topicContent" id="topic1Section">
+        <h3 style="text-align: center;">A General Firing Ciruit for SCR</h3>
+        <hr>
+        <div class="topics-display">
+          <img src="../assets/img/gateFiringCircuit.PNG" alt="gateFiringCircuit">
+          <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>
+        </div>
+      </div>
+
+      <div id="pdfContent">
+        <img src="../../shared/img/close.svg" alt="exit" id="exit-pdf">
+        <div id="pdf-viewer"></div>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
