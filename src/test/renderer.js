@@ -8,7 +8,6 @@ let currentHighTime = parseInt(highTimeSlider.value);
 // Generate a square wave with a specified high time
 function generateSquareWave(highTime, amplitude, sampleRate) {
     const totalPeriods = 5;  // Total number of periods for the waveform
-    const lowTime = totalPeriods - highTime;
     const samplesPerPeriod = Math.floor(sampleRate / totalPeriods);
 
     waveform = [];
@@ -48,65 +47,3 @@ highTimeSlider.addEventListener('input', function () {
 // Initial draw
 generateSquareWave(currentHighTime, 255, 1000);
 drawOscilloscope();
-
-function drawDiodeGraph() {
-    var ctx = document.getElementById('diodeGraph').getContext('2d');
-
-    var diodeGraph = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Vmin', 'Forward Bias', 'Reverse Bias', 'Vmax'],
-            datasets: [{
-                label: 'Diode Characteristics',
-                data: [0, 0, 0, 0], // Add your data points here
-                borderColor: 'blue',
-                borderWidth: 2,
-                fill: false
-            }]
-        },
-        options: {
-            scales: {
-                x: {
-                    type: 'category',
-                    labels: ['Vmin', 'Forward Bias', 'Reverse Bias', 'Vmax']
-                },
-                y: {
-                    beginAtZero: true
-                }
-            },
-            annotation: {
-                annotations: [{
-                    type: 'line',
-                    mode: 'horizontal',
-                    scaleID: 'y',
-                    value: 0,
-                    borderColor: 'red',
-                    borderWidth: 2,
-                    label: {
-                        content: 'Zero Current'
-                    }
-                }, {
-                    type: 'line',
-                    mode: 'vertical',
-                    scaleID: 'x',
-                    value: 2,
-                    borderColor: 'green',
-                    borderWidth: 2,
-                    label: {
-                        content: 'Forward Bias'
-                    }
-                }, {
-                    type: 'line',
-                    mode: 'vertical',
-                    scaleID: 'x',
-                    value: 3,
-                    borderColor: 'orange',
-                    borderWidth: 2,
-                    label: {
-                        content: 'Reverse Bias'
-                    }
-                }]
-            }
-        }
-    });
-}
