@@ -15,7 +15,6 @@ To be able to start development on EV-SIMTEL, make sure that you have the follow
 - [Node.js](https://nodejs.org/en)
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 - [git](https://git-scm.com/downloads)
-- [Visual Studio Community Edition with Desktop Development with C++ enabled](https://visualstudio.microsoft.com/vs/community/)
 
 ### Installing
 
