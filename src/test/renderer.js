@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
   updateChart(chartCanvas);
   slider.addEventListener('input', () => {
     sliderVal = parseInt(slider.value);
-    sliderValue.innerText = sliderVal;
+    sliderValue.innerText = 180 - parseInt(sliderVal * 0.01 * 180);
 
     generateChartData(sliderVal);
     chart1.destroy();
