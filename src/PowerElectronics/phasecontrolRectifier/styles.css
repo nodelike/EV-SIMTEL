@@ -97,11 +97,15 @@ b{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid;
+    margin: 45px 50px;
+    margin-top: 50px;
+    padding : 20px;
 }
 
 .topics-display img{
     margin: 0 auto;
-    height: 475px;
+    height: 350px;
 }
 
 .topics-display button {
@@ -167,4 +171,13 @@ b{
     padding: 0 100px;
     display: flex;
     justify-content: space-evenly;
+}
+.topics-container button {
+    color: white;
+    background: #00988e;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: help;
+    transition: 0.2s ease;
 }
