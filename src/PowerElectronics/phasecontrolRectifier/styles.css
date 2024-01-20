@@ -96,11 +96,11 @@ b{
 .topics-display{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     border: 1px solid;
-    margin: 45px 50px;
-    margin-top: 50px;
+    margin: 20px 50px;
     padding : 20px;
+    height: 52%;
 }
 
 .topics-display img{
@@ -141,6 +141,9 @@ b{
 }
 
 .viewPdf{
+    position: absolute;
+    bottom: 15px;
+    left: 25%;
     margin-left: 20px;
     font-size: 14px;
     padding: 8px 15px;
