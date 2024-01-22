@@ -147,6 +147,17 @@ b{
     cursor: pointer;
 }
 
+.viewSimulation {
+    margin-left: 20px;
+    font-size: 14px;
+    padding: 8px 15px;
+    background: #00988e;
+    color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 #pdf-viewer {
     width: 60%;
     height: 90%;
