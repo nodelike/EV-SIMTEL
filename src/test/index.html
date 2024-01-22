@@ -6,6 +6,7 @@
   <title>Menu</title>
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="styles.css">
+  <script src="../shared/js/chart.umd.js"></script>
 </head>
 <body>
   <header>
@@ -16,8 +17,28 @@
   </header>
   <a href="../home.html"><img src="../shared/img/back.png" alt="back" class="back-btn"></a>
   <div class="app">
-    <input type="range" id="highTimeSlider" min="1" max="10" value="4" step="1">
-    <canvas id="oscilloscope"></canvas>
+    <div>
+      <label for="slider">Slider:</label>
+      <input type="range" id="slider" min="0" max="100" value="0">
+      <span id="sliderValue">0</span>
+    </div>
+    <div class="chartWindow">
+      <div class="chart-container">
+        <canvas id="chart1"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="chart2"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="chart3"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="chart4"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="chart5"></canvas>
+      </div>
+  </div>
   </div>
   <script src="renderer.js"></script>
 </body>
