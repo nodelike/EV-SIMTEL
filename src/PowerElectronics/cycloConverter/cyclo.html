@@ -28,75 +28,45 @@
     <div class="main-panel" id="right-menu">
       <div class="topicContent" id="topic1Section">
         <h2 style="text-align: center; margin-bottom: 0;">Cycloconverter</h2>
-        <hr style="width: 100%;">
+        <hr style="width: 100%;margin: 0;">
         <p style="text-align: center; font-weight: normal; font-size: 22px; margin: 20px 80px;">Cycloconverter convert input AC voltage at one frequency to output AC voltage at a different frequency through one stage conversion.</p>      
         <img src="../assets/img/cycloconverter.PNG" alt="Cycloconverter">
         <h3 style="text-align: center;">Cyclorconverter System</h3>
-        <div class="viewpdf-btncontainer">
-          <button class="viewPdf" onclick='loadPdf("../assets/introductionCycloconverter.pdf")'>View PDF</button>
-        </div>
+        <button class="viewPdf" onclick='loadPdf("../assets/introductionCycloconverter.pdf")'>View PDF</button>
       </div>
 
 
       <div class="topicContent" id="topic2Section" style="display: none;">
-        <h3 style="text-align: center;">Gate Triggering Methods</h3>
-        <hr>
-        <p style="color: red; text-align: center; font-weight: normal;">Too see the details, move the mover over the labels/button</p>
-        <div class="topics-container">
-          <button onmouseover="showContent(0)">DC Gate Triggering</button>
-          <button onmouseover="showContent(1)">AC Gate Triggering</button>
-          <button onmouseover="showContent(2)">Pulse Gate Triggering</button>
-        </div>
-        <div class="topics-display">
-          <p>In this type of triggering , a DC voltage of proper magnitude and polarity is applied between the gate and the cathode of the device in such a way that the gate becomes positive with respect to the cathode. When the applied voltage is sufficient to produce the required gate current , the device starts conducting. \n\tOne drawback of this scheme is that both the power and control circuit are DC and there is no isolation between the two another disadvantage of this process is that a continuous DC signal has to be applied, at the gate causing more gate power loss.</p>
-          <p>AC source is most commonly used for the gate signal in all application of thyristor control adopted for AC applications. This scheme provides the proper isolation between the power and the control circuits. The firing angle control is obtained vary conveniently by changing the phase angle of the control signal.\n\tHowever, the gate drive is maintained for one half cycle after the device is turned ON, and a reverse voltage is applied between the gate and the cathode during the negative half cycle. The drawback of this scheme is that a separate transformer is required to step down the AC supply, which adds to the cost.</p>
-          <p>In this method, as the name suggests, the energy is imparted by radiation. Thyristor is bombarded by energy particles such as neutrons or photons. With the help of this external energy, electron-hole pairs are generated in the device, thus increasing the number of charge carriers. This lead to instantaneous flow of current within the device and the triggering of the device. For radiation triggering to occur, the device must have high value of rate of change of voltage(dv/dt). Light activated silicon controlled rectifier (LASCR) and light activated silicon controlled switch (LASCS) are the exaples of this type of triggering.</p>
-        </div>
-        <button class="viewPdf" onclick='loadPdf("../assets/Gate-Triggering.pdf")'>View PDF</button>
+        <h2 style="text-align: center; margin-bottom: 0;">Cycloconverter Firing Scheme</h2>
+        <hr style="width: 100%;margin: 0;">
+        <p style="text-align: center; font-weight: normal; font-size: 22px; margin: 20px 80px;">The function of the control circuit is to deliver  correctly timed, properly shaped, and firing pulses to the gates of the thryistors in the power coverter so as to generate a voltage of the desired wave shape at the output terminals of a cycloconverter.</p>      
+        <img src="../assets/img/cycloconverterFiringCiruit.PNG" alt="Cycloconverter">
+        <h3 style="text-align: center;">Cyclorconverter Firing Circuit</h3>
+        <button class="viewPdf" onclick='loadPdf("../assets/cycloconverterFiringScheme.pdf")'>View PDF</button>
+
       </div>
 
 
       <div class="topicContent" id="topic3Section" style="display: none;">
-        <h3 style="text-align: center; font-size: 22px;">Introduction of Commutation (Turn off Method)</h3>
-        <hr>
-        <div class="contentWrapper">
-          <p style="text-align: center; font-weight: normal;">Commutation is the process of turning Off, a conducting thyristor is
-            called Commutation</p>
-          <h4>Commutation are of two types: </h4>
-          <p><b style="color: blue;">(A) Natural Commutation: </b>In case of AC circuits, as the current passes through natural zero, a reverse voltage is simultaneously appeared across the device. The device is immediately turned off. This process is called as Natural Commutation and no external circuit is required for this purpose.</p>
-          <p><b style="color: blue;">(A) Forced Commutation: </b>In case of DC circuits, switching of thryistors, forward current should be forced to be zero by means of some external circuit. This process is called Forced Commutation and the ciruits which are used to turn off the thryistor are known as Commutation circuits.</p>
-        </div>
-        <button class="viewPdf" onclick='loadPdf("../assets/COMMUTATION.pdf")'>View PDF</button>
+        <h2 style="text-align: center; margin-bottom: 0;">Single Phase Cycloconverter</h2>
+        <hr style="width: 100%;margin: 0;">
+        <img src="../assets/img/singlePhaseCycloconverter.PNG" alt="Single Phase Cycloconverter" style="height: 60%;">
+        <h3 style="text-align: center;">Single Phase Cycloconverter Circuit</h3>
+        <button class="viewPdf" onclick='loadPdf("../assets/singlePhaseCycloconverter.pdf")'>View PDF</button>
       </div>
 
 
       <div class="topicContent" id="topic4Section" style="display: none;">
-        <h3 style="text-align: center;">Turn-ON method of a Thryistor</h3>
-        <hr>
-        <p style="color: red; text-align: center; font-weight: normal;">Too see the details, move the mover over the labels/button</p>
-        <div class="topics-container" style="margin: 10px 0;">
-          <button onmouseover="showContent(0)">Natural Commutation</button>
-          <button onmouseover="showContent(1)">Forced Commutation</button>
-        </div>
-        <h3 style="margin: 0; padding-left: 20px;">Types of Forced Commutation: </h3>
-        <div class="topics-container" >
-          <button onmouseover="showContent(2)">Class-A</button>
-          <button onmouseover="showContent(3)">Class-B</button>
-          <button onmouseover="showContent(4)">Class-C</button>
-          <button onmouseover="showContent(5)">Class-D</button>
-          <button onmouseover="showContent(6)">Class-E</button>
-          <button onmouseover="showContent(7)">Class-F</button>
-        </div>
-        <div class="topics-display">
-          <p>In case of AC circuits, as the current passes through natural zero, a reverse voltage is simultaneously appeared across the device. The device is immediately turned off. This process is called as Natural Commutation and no external circuit is required for this purpose.</p>
-          <p>In case of DC circuits, switching of thryistors, forward current should be forced to be zero by means of some external circuit. This process is called Forced Commutation and the ciruits which are used to turn off the thryistor are known as Commutation circuits.</p>
-          <p><b style="color: blue;">Class A Commutation: </b>In this type of commutation circuit using LC component in series with the load or capacitor parallel with the load.</p>
-          <p><b style="color: blue;">Class B Commutation: </b>In this type of commutation LC resonating circuit is connect to across the SCR not in series with the load.</p>
-          <p><b style="color: blue;">Class C Commutation: </b>In this type of commutation main thryistor T1 that is to be commutated is connected in series with the load. An additional thryistor T2, called complimentary thryistor is connected in parallel with the main thryistor.</p>
-          <p><b style="color: blue;">Class D Commutation: </b>In this type of commutation auxiliary thryistor T2 is required to commutate main thryistor T1. Assuming ideal thryistor and loss</p>
-          <p><b style="color: blue;">Class E Commutation: </b>In this type of commutation reverse voltage is applied to current carrying thryistor from an external pulse source.</p>
-          <p><b style="color: blue;">Class F Commutation: </b>In this type of commutation supply is an alternating voltages (AC), load current will flow during positive half cycle. During negative half cycle thryistor will turn off due to negative polarity across it.</p>
-        </div>
+        <h2 style="text-align: center;">Applications of Cyclorconverter</h2>
+        <hr style="width: 100%;margin: 0;">
+        <ol style="height: 100%;">
+          <li>Cement mill drives</li>
+          <li>Ship propulsion drives</li>
+          <li>Rolling mill drives</li>
+          <li>Scherbius drives</li>
+          <li>Ore grinding mills</li>
+          <li>Mine winders</li>
+        </ol>
       </div>
 
       <div id="pdfContent">
