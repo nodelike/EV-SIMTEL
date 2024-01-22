@@ -28,8 +28,8 @@
             <li onclick="componentActive(this)" id="topic7">Ramp and Pedestal Triggering</li> 
         </ul>
     </div>
+
     <div class="main-panel" id="right-menu">
-      
 
       <div class="topicContent" id="topic1Section">
         <h3 style="text-align: center;">A General Firing Ciruit for SCR</h3>
@@ -46,11 +46,10 @@
         <div class="topics-display">
           <img src="../assets/img/resistanceFiringCircuit.PNG" alt="gateFiringCircuit">
           <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>   
-          <button class="simulationIframe" onclick='startSimulation("simulation/index.html")'>Simulation</button>
+          <button class="simulationIframe" onclick='startSimulation()'>Simulation</button>
         </div>
       </div>  
-    </div>
-  </div>
+
       
 
       <!-- Start from here  -->
@@ -107,8 +106,7 @@
       </div>
 
       <div id="simulation-frame">
-        <img src="../../shared/img/close.svg" alt="exit" id="exit-pdf">
-
+        <img src="../../shared/img/close.svg" alt="exit" id="exit-sim">
       </div>
     </div>
   </div>

@@ -29,21 +29,9 @@ function loadPdf(url){
         console.error('Error loading PDF:', error);
     });
 }
-function startSimulation(simulationSrc) {
-    // Assuming simulationSrc is the source of your simulation HTML file
-    var iframe = document.getElementById("simulation-frame");
-  
-    // Check if the iframe exists
-    if (iframe) {
-      // Set the source of the iframe to the simulation HTML file
-      iframe.src = simulationSrc;
-  
-      // Make the iframe visible
-      iframe.style.display = "block";
-    } else {
-      // Handle the case where the iframe element is not found
-      console.error("Iframe element not found.");
-    }
+function startSimulation() {
+    document.getElementById(currentWindow).style.display = "none"
+    document.getElementById("simulation-frame").style.display = "block"
   }
 
 function componentActive(button){
@@ -69,6 +57,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById(currentWindow).style.display = "block";
         document.getElementById("pdfContent").style.display = "none";
         document.getElementById('pdf-viewer').innerHTML = '';
+    });
+
+    document.getElementById("exit-sim").addEventListener("click", function(){
+        document.getElementById(currentWindow).style.display = "block";
+        document.getElementById("simulation-frame").style.display = "none";
     });
 });
 
