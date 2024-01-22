@@ -46,6 +46,7 @@
         <div class="topics-display">
           <img src="../assets/img/resistanceFiringCircuit.PNG" alt="gateFiringCircuit">
           <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>
+          <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
         </div>
       </div>
       
@@ -101,6 +102,11 @@
       <div id="pdfContent">
         <img src="../../shared/img/close.svg" alt="exit" id="exit-pdf">
         <div id="pdf-viewer"></div>
+      </div>
+
+      <div id="simulation-frame">
+        <img src="../../shared/img/close.svg" alt="exit" id="exit-sim">
+        <iframe src="../../test/index.html" frameborder="0"></iframe>
       </div>
     </div>
   </div>

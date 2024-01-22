@@ -52,38 +52,25 @@ b{
     color: white;
 }
 
-.sub-menu ol {
-    list-style: none;
-    padding: 0 15px;
-}
-
-.sub-menu ol li {
-    padding: 5px 15px;
-    transition: 0.2s ease;
-
-}
-  
-.sub-menu li:hover{
-    text-decoration: underline;
-    color: white;
-}
-  
-.sub-menu {
-    background: white;
-    border: 1px solid;
-    border-top: 0;
-    display: flex;  
-    transition: 0.2s ease-in-out;
-    margin: 0 20px;
-    border-radius: 0 0 10px 10px;
-    font-weight: bold;
-    font-size: 15px;
-    justify-content: center;
-}
-
-
 .topicContent{
+    display: flex;
     height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.topicContent hr{
+    width: 100%;
+}
+
+.topicContent img{
+    margin: 0 auto;
+}
+
+.topicContent li {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 10px;
 }
 
 .contentWrapper {
@@ -92,21 +79,46 @@ b{
     font-size: 20px;
 }
 
+.topics-container{
+    margin: 30px 0;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.topics-container button{
+    color: white;
+    background: #00988e;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: help;
+    transition: 0.2s ease;
+}
+
+.topics-container button:hover{
+    background: white;
+    color: black;
+}
 
 .topics-display{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    width: 75%;
+    height: 45%;
+    border: 1px solid;
+    margin: 45px auto;
 }
 
-.topics-display img{
-    margin: 0 auto;
-    height: 475px;
+.topics-display p{
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px 30px;
+    text-align: left;
 }
 
-.topics-display button {
-    width: 100px;
-}
 
 #pdfContent {
     display: none;
@@ -118,7 +130,7 @@ b{
     height: 100%;
 }
 
-#exit-pdf {
+#exit-pdf, #exit-sim {
     position: relative;
     top: 15px;
     left: 15px;
@@ -131,13 +143,15 @@ b{
     transition: 0.2s ease-in-out;
 }
 
-#exit-pdf:hover {
+#exit-pdf:hover, #exit-sim:hover {
     filter: invert(1);
     border: 2px solid white;
 }
 
 .viewPdf{
     margin-left: 20px;
+    position: absolute;
+    bottom: 20px;
     font-size: 14px;
     padding: 8px 15px;
     background: #00988e;
@@ -148,7 +162,9 @@ b{
 }
 
 .viewSimulation {
-    margin-left: 20px;
+    margin-left: 130px;
+    position: absolute;
+    bottom: 20px;
     font-size: 14px;
     padding: 8px 15px;
     background: #00988e;

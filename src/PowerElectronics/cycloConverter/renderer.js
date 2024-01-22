@@ -30,9 +30,10 @@ function loadPdf(url){
     });
 }
 
-function startSimulation() {
+function startSimulation(url) {
     document.getElementById(currentWindow).style.display = "none"
     document.getElementById("simulation-frame").style.display = "block"
+    document.getElementById("simIframe").src = url;
 }
 
 function componentActive(button){
@@ -48,20 +49,20 @@ function componentActive(button){
         for (var i = 0; i < childDivs.length; i++) {
             childDivs[i].style.display = 'none';
         }
-        document.getElementById(button.id + "Section").style.display = "block";
+        document.getElementById(button.id + "Section").style.display = "flex";
     }
 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("exit-pdf").addEventListener("click", function(){
-        document.getElementById(currentWindow).style.display = "block";
+        document.getElementById(currentWindow).style.display = "flex";
         document.getElementById("pdfContent").style.display = "none";
         document.getElementById('pdf-viewer').innerHTML = '';
     });
 
     document.getElementById("exit-sim").addEventListener("click", function(){
-        document.getElementById(currentWindow).style.display = "block";
+        document.getElementById(currentWindow).style.display = "flex";
         document.getElementById("simulation-frame").style.display = "none";
     });
 });
