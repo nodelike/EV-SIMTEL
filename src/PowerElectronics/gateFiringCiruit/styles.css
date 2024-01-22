@@ -161,3 +161,13 @@ b{
     display: block;
     border: 1px solid black;
 }
+
+#simulation-frame{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.8);
+    width: 100%;
+    height: 100%;       
+}
