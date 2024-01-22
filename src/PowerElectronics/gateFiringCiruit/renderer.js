@@ -30,6 +30,11 @@ function loadPdf(url){
     });
 }
 
+function startSimulation() {
+    document.getElementById(currentWindow).style.display = "none"
+    document.getElementById("simulation-frame").style.display = "block"
+}
+
 function componentActive(button){
     var liElements = document.getElementById("left-menu").querySelectorAll('li');
 
