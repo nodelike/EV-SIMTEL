@@ -30,9 +30,10 @@ function loadPdf(url){
     });
 }
 
-function startSimulation() {
+function startSimulation(url) {
     document.getElementById(currentWindow).style.display = "none"
     document.getElementById("simulation-frame").style.display = "block"
+    document.getElementById("simIframe").src = url;
 }
 
 function componentActive(button){
