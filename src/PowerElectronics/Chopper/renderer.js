@@ -30,6 +30,12 @@ function loadPdf(url){
     });
 }
 
+function startSimulation(url) {
+    document.getElementById(currentWindow).style.display = "none";
+    document.getElementById("simulation-frame").style.display = "block";
+    document.getElementById("simIframe").src = url;
+}
+
 function componentActive(button){
     var liElements = document.getElementById("left-menu").querySelectorAll('li');
 
@@ -53,6 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById(currentWindow).style.display = "block";
         document.getElementById("pdfContent").style.display = "none";
         document.getElementById('pdf-viewer').innerHTML = '';
+    });
+    document.getElementById("exit-sim").addEventListener("click", function(){
+        document.getElementById(currentWindow).style.display = "block";
+        document.getElementById("simulation-frame").style.display = "none";
     });
 });
 
