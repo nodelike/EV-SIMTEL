@@ -30,6 +30,7 @@ function loadPdf(url){
     });
 }
 
+
 function componentActive(button){
     var liElements = document.getElementById("left-menu").querySelectorAll('li');
 
