@@ -20,14 +20,7 @@
     <div class="side-panel" id="left-menu">
         <ul>
             <li class="active" onclick="componentActive(this)" id="topic1">Introduction</li>
-            <li style="margin-bottom: 0;">Classification</li>
-            <div id="subItem" class="sub-menu">
-              <ol>
-                <li id="topic2" onclick="componentActive(this)">Classifiaction</li>
-                
-              </ol>
-            </div>
-           
+            <li onclick="componentActive(this)" id="topic2">Classifiaction</li>
             <li onclick="componentActive(this)" id="topic3">Series Inverter</li>
             <li onclick="componentActive(this)" id="topic4">Parellel Inverter</li>
             <li onclick="componentActive(this)" id="topic5">Bridge Inverter</li>
@@ -53,7 +46,7 @@
       </div>
 
       <div class="topicContent" id="topic2Section" style="display: none;">
-        <h3 style="text-align: center;">Classification</h3>
+        <h3 style="text-align: center;">Classification of Inverter</h3>
         <hr>
         <p style="color: red; text-align: center; font-weight: normal;">Too see the details, move the mover over the labels/button</p>
         <div class="topics-container" style="margin: 10px 0;">
@@ -79,7 +72,7 @@
           <p>In this type of inverters, the commutating elements, viz. L and C are connected in series with the load. This constitutes a series R-L-C resonant circuit. If the load is purely resistive, it only has resistance in the circuit. In case of load being inductive or capacitive in nature, its inductance or capacitance part is added to the commutating elements (being in series)</p>
           <img src="../assets/img/seriesinverter.png" alt="Series Inverter">
           <button class="viewPdf" onclick='loadPdf("../assets/SeriesInverter.pdf")'>View PDF</button>
-          <button class="viewSimulation" onclick='startSimulation("../assets/SeriesInverter.pdf")'>Simulation</button>
+          <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
         </div>
         
       </div>
@@ -93,8 +86,8 @@
           <p>A parallel inverter is used to produce a square-wave from a DC supply. Basically, by alternately switching the two Thyristors, the DC source is connected in alternative sense to the two halves of the transformer primary, thereby inducing a square-wave voltage across the load in the transformer secondary</p>
           <img src="../assets/img/parellelinverter.png" alt="Parellel Inverter">
           <button class="viewPdf" onclick='loadPdf("../assets/parallelInverter.pdf")'>View PDF</button>
+          <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
         </div>
-        
       
       </div>
 
@@ -106,6 +99,7 @@
           <p>The DC to AC power converters are known as Inverters. An Inverter is a circuit, which converts a dc power into an ac power at desired output voltage and frequency. The ac output voltage could be fixed or variable frequency. This conversion can be achieved either by controlled turn on and turn off devices (e.g. BJT's, MOSFETS, IGBTS, MCTS, SITS, GTOs, and SITHS) or by forced commutated thyristors, depending on applications.</p>
           <img src="../assets/img/bridgeinverter.png" alt="Bridge Inverter">
           <button class="viewPdf" onclick='loadPdf("../assets/bridgeInveter.pdf")'>View PDF</button>
+          <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
         </div>
         
       </div>
