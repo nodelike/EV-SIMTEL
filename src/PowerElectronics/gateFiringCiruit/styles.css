@@ -103,7 +103,7 @@ b{
 
 .topics-display img{
     margin: 0 auto;
-    height: 475px;
+    height: auto;
 }
 
 .topics-display button {

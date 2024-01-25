@@ -92,6 +92,8 @@ b{
     height: 60%;
     margin: 50px 100px;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -103,7 +105,8 @@ b{
 
 .topics-display img{
     margin: 0 auto;
-    height: 350px;
+    height: auto;
+    max-width: 60%;
 }
 
 .topics-display button {
