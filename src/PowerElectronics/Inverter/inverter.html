@@ -22,7 +22,7 @@
       <hr style="border-color: black;">
         <ul>
             <li class="active" onclick="componentActive(this)" id="topic1">Introduction</li>
-            <li onclick="componentActive(this)" id="topic2">Classifiaction</li>
+            <li onclick="componentActive(this)" id="topic2">Classification</li>
             <li onclick="componentActive(this)" id="topic3">Series Inverter</li>
             <li onclick="componentActive(this)" id="topic4">Parellel Inverter</li>
             <li onclick="componentActive(this)" id="topic5">Bridge Inverter</li>
@@ -57,9 +57,9 @@
           <button onmouseover="showContent(2)">Bridge Inverter</button>
         </div>
         <div class="topics-display contentWrapper" >
-          <p style="display: none;"><b style="color: blue;">Series Inverter: </b>The commutating elements may come in series with the load or in parallel with the load during operations. In this type of inverters, as indicated by the name, the commutating elements, viz. L and C are connected with the load. This constitutes a series R-L-C resonants Circuit. This type of thyristorised inverter produce an approximately sinusoidal waveforms at a high output frequency, ranging from 200Hz to 100KHz, and is commonly used in relatively fixed output application. </p>
-          <p style="display: none;"><b style="color: blue;">Parellel Inverter: </b>A parallel inverter is used to produce a square-wave from a DC supply. Basically, by alternately switching the two Thyristors, the DC source is connected in alternative sense to the two halves of the transformer primary, thereby inducing a square-wave voltage across the load in the transformer secondary. In this inverter, the commutating capacitor comes in parallel with the</p>
-          <p style="display: none;"><b style="color: blue;">Bridge Inverter: </b>Single phase bridge inverter which needs four SCR and four freewheeling diodes. The sequence of SCR gating and the SCR T1 and 0T2 must be gated simultaneously and T3 and T4 must be gated 180 out of phase. When SCR1 and SCR 4 conduct, the output voltage will be positive EDC and when SCR2 and SCR3 conduct, the output voltage will be negative -EDC Diodes D1 to D4 serve to feed the load reactive power back to the DC supply. The load voltage waveform is fairly rectangular and is not affected by the nature of the load. This is an advantage of bridge inverter over the series inverter.</p>
+          <p class="box"><b style="color: blue;">Series Inverter: </b>The commutating elements may come in series with the load or in parallel with the load during operations. In this type of inverters, as indicated by the name, the commutating elements, viz. L and C are connected with the load. This constitutes a series R-L-C resonants Circuit. This type of thyristorised inverter produce an approximately sinusoidal waveforms at a high output frequency, ranging from 200Hz to 100KHz, and is commonly used in relatively fixed output application. </p>
+          <p class="box"><b style="color: blue;">Parellel Inverter: </b>A parallel inverter is used to produce a square-wave from a DC supply. Basically, by alternately switching the two Thyristors, the DC source is connected in alternative sense to the two halves of the transformer primary, thereby inducing a square-wave voltage across the load in the transformer secondary. In this inverter, the commutating capacitor comes in parallel with the</p>
+          <p class="box"><b style="color: blue;">Bridge Inverter: </b>Single phase bridge inverter which needs four SCR and four freewheeling diodes. The sequence of SCR gating and the SCR T1 and 0T2 must be gated simultaneously and T3 and T4 must be gated 180 out of phase. When SCR1 and SCR 4 conduct, the output voltage will be positive EDC and when SCR2 and SCR3 conduct, the output voltage will be negative -EDC Diodes D1 to D4 serve to feed the load reactive power back to the DC supply. The load voltage waveform is fairly rectangular and is not affected by the nature of the load. This is an advantage of bridge inverter over the series inverter.</p>
           
         </div>
       </div>
@@ -73,8 +73,10 @@
         <div class="topics-display contentWrapper">
           <p>In this type of inverters, the commutating elements, viz. L and C are connected in series with the load. This constitutes a series R-L-C resonant circuit. If the load is purely resistive, it only has resistance in the circuit. In case of load being inductive or capacitive in nature, its inductance or capacitance part is added to the commutating elements (being in series)</p>
           <img src="../assets/img/seriesinverter.png" alt="Series Inverter">
-          <button class="viewPdf" onclick='loadPdf("../assets/SeriesInverter.pdf")'>View PDF</button>
-          <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          <div class="pdfsimnum">
+            <button class="viewPdf" onclick='loadPdf("../assets/SeriesInverter.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          </div>
         </div>
         
       </div>

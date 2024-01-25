@@ -139,11 +139,10 @@ b{
     border: 2px solid white;
 }
 
-.viewPdf{
+.viewPdf {
+    margin-left: -80px;
     position: absolute;
-    bottom: 15px;
-    left: 25%;
-    margin-left: 20px;
+    bottom: 20px;
     font-size: 14px;
     padding: 8px 15px;
     background: #00988e;
@@ -183,11 +182,10 @@ b{
     cursor: help;
     transition: 0.2s ease;
 }
-.viewSimulation{
+.viewSimulation {
+    margin-left: 30px;
     position: absolute;
-    bottom: 15px;
-    left: 36%;
-    margin-left: 20px;
+    bottom: 20px;
     font-size: 14px;
     padding: 8px 15px;
     background: #00988e;
@@ -215,4 +213,11 @@ iframe {
 .contentWrapper img{
     height: auto;
     max-width: 80%;
+}
+
+.box{
+    display: none;
+    padding: 30px;
+    border: 1px solid #000;
+    justify-content: center;
 }
