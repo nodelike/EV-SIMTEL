@@ -211,3 +211,8 @@ iframe {
     height: 100%;
 
 }
+
+.contentWrapper img{
+    height: auto;
+    max-width: 80%;
+}
