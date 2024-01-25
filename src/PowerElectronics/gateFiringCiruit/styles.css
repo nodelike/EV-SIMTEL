@@ -23,6 +23,8 @@ b{
     background: rgb(211, 211, 211);
     color: black;
     border-right: 1px solid rgb(46, 46, 46);
+    padding-top: 0%;
+    padding: 15px;
 }
 
 .side-panel ul{
@@ -137,6 +139,17 @@ b{
 }
 
 .viewPdf{
+    margin-left: 20px;
+    font-size: 14px;
+    padding: 8px 15px;
+    background: #00988e;
+    color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.viewSimulation {
     margin-left: 20px;
     font-size: 14px;
     padding: 8px 15px;

@@ -18,6 +18,8 @@
   <a href="../../index/index.html"><img src="../../shared/img/back.png" alt="back" class="back-btn"></a>
   <div class="app">
     <div class="side-panel" id="left-menu">
+      <h3 style = "text-align: center;">Cyclo Converter</h3>
+      <hr style="border-color: black;">
         <ul>
             <li class="active" onclick="componentActive(this)" id="topic1">Introduction</li>
             <li onclick="componentActive(this)" id="topic2">Cyclo Converter Firing Scheme</li> 
@@ -43,7 +45,7 @@
         <img src="../assets/img/cycloconverterFiringCiruit.PNG" alt="Cycloconverter">
         <h3 style="text-align: center;">Cyclorconverter Firing Circuit</h3>
         <button class="viewPdf" onclick='loadPdf("../assets/cycloconverterFiringScheme.pdf")'>View PDF</button>
-
+        <button class="viewSimulation" onclick='startSimulation("simulations/firingScheme/index.html")'>Simulation</button>
       </div>
 
 
@@ -53,6 +55,7 @@
         <img src="../assets/img/singlePhaseCycloconverter.PNG" alt="Single Phase Cycloconverter" style="height: 60%;">
         <h3 style="text-align: center;">Single Phase Cycloconverter Circuit</h3>
         <button class="viewPdf" onclick='loadPdf("../assets/singlePhaseCycloconverter.pdf")'>View PDF</button>
+        <button class="viewSimulation" onclick='startSimulation("simulations/singlePhase/index.html")'>Simulation</button>
       </div>
 
 
@@ -72,6 +75,11 @@
       <div id="pdfContent">
         <img src="../../shared/img/close.svg" alt="exit" id="exit-pdf">
         <div id="pdf-viewer"></div>
+      </div>
+
+      <div id="simulation-frame">
+        <img src="../../shared/img/close.svg" alt="exit" id="exit-sim">
+        <iframe id="simIframe" frameborder="0"></iframe>
       </div>
     </div>
   </div>
