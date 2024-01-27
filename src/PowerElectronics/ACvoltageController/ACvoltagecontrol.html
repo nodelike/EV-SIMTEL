@@ -18,9 +18,11 @@
   <a href="../../index/index.html"><img src="../../shared/img/back.png" alt="back" class="back-btn"></a>
   <div class="app">
     <div class="side-panel" id="left-menu">
+      <h3 style = "text-align: center;">AC Voltage Controller</h3>
+      <hr style="border-color: black;">
         <ul>
             <li class="active" onclick="componentActive(this)" id="topic1">Introduction</li>
-            <li onclick="componentActive(this)" id="topic2">Classifiaction</li>
+            <li onclick="componentActive(this)" id="topic2">Classification</li>
             <li onclick="componentActive(this)" id="topic3">Half-Wave AC Controller</li>
             <li onclick="componentActive(this)" id="topic4">Full-Wave AC Controller</li>
             <li onclick="componentActive(this)" id="topic5">Application</li> 
@@ -39,7 +41,9 @@
           <p><b>(2)Half-Wave AC Voltage Controller: </b> Full-Wave AC Voltage Controller controlled in the both half cycle of input AC voltage by varying the Firing angle.</p>
           
           <img src="../assets/img/introAcVoltage.png" alt="AC Controller">
-          <button class="viewPdf" onclick='loadPdf("../assets/introACVoltage.pdf")'>View PDF</button> 
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/introACVoltage.pdf")'>View PDF</button> 
+          </div>
         </div>
       </div>
 
@@ -53,8 +57,8 @@
           
         </div>
         <div class="topics-display contentWrapper" >
-          <p style="display: none;"><b style="color: blue;">Half-Wave AC Controller: </b>Single phase half wave AC voltage controller circuit using one SCR and one diode connected in parallel across each other in opposite direction used in most of the AC control applications. The AC power flow to the load can be controlled in the half cycles by varying firing angle. The RMS value of load voltage can be varied by varying firing angle. The half wave AC voltage controller is also referred to a uni- directional controller.</p>
-          <p style="display: none;"><b style="color: blue;">Full-Wave AC Voltage Controller: </b>Single phase full wave AC voltage controller circuit using two SCRs or a single Triac is generally used in most of the AC control applications. The AC power flow to the load can be controlled in both half cycles by varying firing angle. The RMS value of load voltage can be varied by varying firing angle. The full wave AC voltage controller is also referred to a bi-directional controller.</p>
+          <p class="box"><b style="color: blue;">Half-Wave AC Controller: </b>Single phase half wave AC voltage controller circuit using one SCR and one diode connected in parallel across each other in opposite direction used in most of the AC control applications. The AC power flow to the load can be controlled in the half cycles by varying firing angle. The RMS value of load voltage can be varied by varying firing angle. The half wave AC voltage controller is also referred to a uni- directional controller.</p>
+          <p class="box"><b style="color: blue;">Full-Wave AC Voltage Controller: </b>Single phase full wave AC voltage controller circuit using two SCRs or a single Triac is generally used in most of the AC control applications. The AC power flow to the load can be controlled in both half cycles by varying firing angle. The RMS value of load voltage can be varied by varying firing angle. The full wave AC voltage controller is also referred to a bi-directional controller.</p>
           
         </div>
       </div>
@@ -67,9 +71,13 @@
         
         <div class="topics-display contentWrapper">
           
-          <img src="../assets/img/halfwaveacvoltagecontrol.png" alt="Half-Wave AC Controller">
-          <button class="viewPdf" onclick='loadPdf("../assets/Half_AC_V_Controller.pdf")'>View PDF</button>
-          <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          <img src="../assets/img/halfwaveacvoltagecontrol1.png" alt="Half-Wave AC Controller">
+          <img src="../assets/img/halfwaveacvoltagecontrol2.png" alt="Half-Wave AC Controller">
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/Half_AC_V_Controller.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+            <button class="viewnumerical" onclick='loadPdf("../assets/Step_Down_Chopper.pdf")'>Numerical</button> 
+          </div>
         </div>
         
       </div>
@@ -82,8 +90,11 @@
         <div class="topics-display contentWrapper">
           
           <img src="../assets/img/fullwaveacvoltagecontrol.png" alt="Full-Wave AC Controller">
-          <button class="viewPdf" onclick='loadPdf("../assets/Full_AC_V_Controller.pdf")'>View PDF</button>
-          <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/Full_AC_V_Controller.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+            <button class="viewnumerical" onclick='loadPdf("../assets/Step_Down_Chopper.pdf")'>Numerical</button> 
+          </div>
         </div>
       
       </div>

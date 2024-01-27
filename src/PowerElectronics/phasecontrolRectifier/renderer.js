@@ -62,5 +62,10 @@ function showContent(index) {
       paragraph.style.display = i === index ? 'flex' : 'none';
       paragraph.style.color = i === index ? 'black' : 'white';
     });
+
+    const actionDivs = document.querySelectorAll('#' + currentWindow + ' .topics-display div');
+    actionDivs.forEach((div, i) => {
+        div.style.display = i === index ? 'flex' : 'none';
+    });
     console.log(index);
 }

@@ -3,7 +3,7 @@ var currentWindow = 'topic1Section'
 function loadPdf(url){
     const pdfViewer = document.getElementById('pdf-viewer');
     document.getElementById(currentWindow).style.display = "none"
-    document.getElementById("pdfContent").style.display = "flex"
+    document.getElementById("pdfContent").style.display = "block"
 
     pdfjsLib.getDocument(url).promise.then(function (pdfDoc) {
         const totalPages = pdfDoc.numPages;
@@ -31,8 +31,8 @@ function loadPdf(url){
 }
 
 function startSimulation(url) {
-    document.getElementById(currentWindow).style.display = "none"
-    document.getElementById("simulation-frame").style.display = "block"
+    document.getElementById(currentWindow).style.display = "none";
+    document.getElementById("simulation-frame").style.display = "block";
     document.getElementById("simIframe").src = url;
 }
 
@@ -49,20 +49,19 @@ function componentActive(button){
         for (var i = 0; i < childDivs.length; i++) {
             childDivs[i].style.display = 'none';
         }
-        document.getElementById(button.id + "Section").style.display = "flex";
+        document.getElementById(button.id + "Section").style.display = "block";
     }
 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("exit-pdf").addEventListener("click", function(){
-        document.getElementById(currentWindow).style.display = "flex";
+        document.getElementById(currentWindow).style.display = "block";
         document.getElementById("pdfContent").style.display = "none";
         document.getElementById('pdf-viewer').innerHTML = '';
     });
-
     document.getElementById("exit-sim").addEventListener("click", function(){
-        document.getElementById(currentWindow).style.display = "flex";
+        document.getElementById(currentWindow).style.display = "block";
         document.getElementById("simulation-frame").style.display = "none";
     });
 });
