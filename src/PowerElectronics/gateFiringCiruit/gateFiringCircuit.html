@@ -22,7 +22,7 @@
       <hr style="border-color: black;">
         <ul>
             <li class="active" onclick="componentActive(this)" id="topic1">General Firing Circuit for SCR</li>
-            <li onclick="componentActive(this)" id="topic2">Gate Triggering methods</li> 
+            <li onclick="componentActive(this)" id="topic2">Resistance Firing</li> 
             <li onclick="componentActive(this)" id="topic3">Half-Wave R-C Firing Circuit</li>
             <li onclick="componentActive(this)" id="topic4">Full-Wave R-C Firing Circuit</li>
             <li onclick="componentActive(this)" id="topic5">UJT Oscillator</li>
@@ -34,21 +34,25 @@
     <div class="main-panel" id="right-menu">
 
       <div class="topicContent" id="topic1Section">
-        <h3 style="text-align: center;">A General Firing Ciruit for SCR</h3>
+        <h3 style="text-align: center;">General Firing Ciruit for SCR</h3>
         <hr>
         <div class="topics-display">
           <img src="../assets/img/gateFiringCircuit.PNG" alt="gateFiringCircuit" style="max-width: 70%;">
-          <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>
+          </div>
         </div>
       </div>
 
       <div class="topicContent" id="topic2Section">
-        <h3 style="text-align: center;">Gate Triggering Methods</h3>
+        <h3 style="text-align: center;">Resistance Firing</h3>
         <hr>
         <div class="topics-display">
           <img src="../assets/img/resistanceFiringCircuit.PNG" alt="gateFiringCircuit" style="max-width: 70%;">
-          <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>   
-          <button class="simulationIframe" onclick='startSimulation()'>Simulation</button>
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/basicFiringCircuitforSCR.pdf")'>View PDF</button>   
+            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          </div>
         </div>
       </div> 
 
@@ -58,7 +62,10 @@
         <hr>
         <div class="topics-display">
           <img src="../assets/img/HalfwaveRCFiringCircuit.png" alt="gateFiringCircuit" style="max-width: 60%;">
-          <button class="viewPdf" onclick='loadPdf("../assets/halfwaveRC.pdf")'>View PDF</button>
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/halfwaveRC.pdf")'>View PDF</button>   
+            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          </div>
         </div>
       </div>
 
@@ -67,7 +74,10 @@
         <hr>
         <div class="topics-display">
           <img src="../assets/img/FullwaveRCFiringCircuit.png" alt="gateFiringCircuit" style="max-width: 60%;">
-          <button class="viewPdf" onclick='loadPdf("../assets/FullWaveRC.pdf")'>View PDF</button>
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/FullWaveRC.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          </div>
         </div>
       </div>
 
@@ -76,7 +86,10 @@
         <hr>
         <div class="topics-display">
           <img src="../assets/img/UJTOscillator.png" alt="gateFiringCircuit" style="max-width: 50%;">
-          <button class="viewPdf" onclick='loadPdf("../assets/UJTOscillator.pdf")'>View PDF</button>
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/UJTOscillator.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          </div>
         </div>
       </div>
 
@@ -85,7 +98,10 @@
         <hr>
         <div class="topics-display">
           <img src="../assets/img/RampTriggereing.png" alt="gateFiringCircuit" style="max-width: 70%;">
-          <button class="viewPdf" onclick='loadPdf("../assets/RampTriggering.pdf")'>View PDF</button>
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/RampTriggering.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          </div>
         </div>
       </div>
 
@@ -95,7 +111,10 @@
         <p style="margin: 2cap; font-size: large;">The UJT is often used as a trigger device for SCRs and TRIACs. Ramp and pedestal triggering is an improved version of synchronized UJT oscillator triggering.</p>
         <div class="topics-display">
           <img src="../assets/img/Ramp&Padestal.png" alt="gateFiringCircuit" style="max-width: 70%;">
-          <button class="viewPdf" onclick='loadPdf("../assets/RampandPedestal.pdf")'>View PDF</button>
+          <div class="actionContainer">
+            <button class="viewPdf" onclick='loadPdf("../assets/RampandPedestal.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+          </div>
         </div>
       </div>
 

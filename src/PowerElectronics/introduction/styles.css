@@ -101,10 +101,6 @@ a{
     display: flex;
     justify-content: center;
 }
-.viewpdf-btncontainer{
-    display: flex;
-    justify-content: left;
-}
 
 #pdfContent {
     display: none;
@@ -134,17 +130,6 @@ a{
     border: 2px solid white;
 }
 
-#viewPdf{
-    margin-left: 20px;
-    font-size: 14px;
-    padding: 8px 15px;
-    background: #00988e;
-    color: white;
-    border: 1px solid black;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 #pdf-viewer {
     width: 60%;
     height: 90%;
@@ -158,4 +143,41 @@ a{
 #pdf-viewer canvas {
     display: block;
     border: 1px solid black;
+}
+
+.actionContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 25%;
+    margin-left: 20px;
+    bottom: 15px;
+}
+
+.viewSimulation{
+    position: absolute;
+    bottom: 15px;
+    font-size: 14px;
+    padding: 8px 15px;
+    background: #00988e;
+    color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    left: 130px;
+    margin-left: auto;
+}
+
+.viewPdf{
+    position: absolute;
+    bottom: 15px;
+    font-size: 14px;
+    padding: 8px 15px;
+    background: #00988e;
+    color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: inherit;
 }
