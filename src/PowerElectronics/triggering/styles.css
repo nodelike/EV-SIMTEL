@@ -69,18 +69,21 @@ b{
     text-decoration: underline;
     color: white;
 }
-  
+ 
 .sub-menu {
     background: white;
     border: 1px solid;
-    border-top: 0;
-    display: flex;  
-    transition: 0.2s ease-in-out;
-    margin: 0 20px;
-    border-radius: 0 0 10px 10px;
+    transition: 26.2s ease-in-out;
+    border-radius: 10px;
     font-weight: bold;
     font-size: 15px;
     justify-content: center;
+    display: none;
+    position: absolute;
+    top: 16vh;
+    left: 25%;
+    width: 253px;
+    color: black;
 }
 
 
