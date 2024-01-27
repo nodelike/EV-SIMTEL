@@ -159,14 +159,14 @@ b{
 }
 
 #pdf-viewer {
-    width: 60%;
-    height: 90%;
-    display: flex;
-    margin: 0px auto;
-    border: 1px solid #ccc;
-    overflow-y:auto;
-    flex-direction: column;
-}
+        width: 60%;
+        height: 90%;
+        display: flex;
+        margin: 40px auto;
+        border: 1px solid #ccc;
+        overflow-y: auto;
+        flex-direction: column;
+    }
   
 #pdf-viewer canvas {
     display: block;
