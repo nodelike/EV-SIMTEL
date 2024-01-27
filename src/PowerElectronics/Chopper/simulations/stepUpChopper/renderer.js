@@ -14,9 +14,10 @@ function generateChartData(sliderVal) {
   chart2data = Array.from({ length: numPoints }, (_, i) => {
     const xValue = i * (6 * Math.PI) / (numPoints - 1);
     const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
+    const positionInCycle = xValue % Math.PI;
     
-    if (isOddCycle) {
-        return 1;
+    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) > Math.max(0, sliderVal * 0.01))) {
+        return sliderVal < 50 ? amplitude * Math.sin(xValue) : Math.sin(xValue);
     } else {
         return 0;
     }
@@ -27,7 +28,11 @@ function generateChartData(sliderVal) {
     const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
     const positionInCycle = xValue % Math.PI;
     
-    return positionInCycle / Math.PI;
+    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) < Math.max(0, sliderVal * 0.01))) {
+        return sliderVal < 50 ? 0 : Math.sin(xValue);
+    } else {
+        return 0;
+    }
   });
 
   chart4data = Array.from({ length: numPoints }, (_, i) => {
@@ -35,8 +40,8 @@ function generateChartData(sliderVal) {
     const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
     const positionInCycle = xValue % Math.PI;
     
-    if (isOddCycle && (1 - ((positionInCycle % (Math.PI/3)) / (Math.PI/3) ) > Math.max(0, sliderVal * 0.01))) {
-        return 1;
+    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) < Math.max(0, sliderVal * 0.01))) {
+        return sliderVal < 50 ? 0 : Math.sin(xValue);
     } else {
         return 0;
     }
@@ -62,7 +67,7 @@ function updateChart(chartCanvas) {
       legend: {
           display: false
       }
-    },
+  },
     animation: false,
     scales: {
       x: {
@@ -75,7 +80,7 @@ function updateChart(chartCanvas) {
         display: false,
         type: 'linear',
         position: 'left',
-        min: -0.01,
+        min: -1.2,
         max: 1.2,
       },
       
@@ -103,39 +108,7 @@ function updateChart(chartCanvas) {
         fill: false,
       }]
     },
-    options: {
-      plugins: {
-        legend: {
-            display: false
-        }
-      },
-      animation: false,
-      scales: {
-        x: {
-          type: 'linear',
-          position: 'bottom',
-          min: 0,
-          max: 6 * Math.PI,
-        },
-        y: {
-          display: false,
-          type: 'linear',
-          position: 'left',
-          min: -1.2,
-          max: 1.2,
-        },
-        
-      },
-      maintainAspectRatio: false,
-      elements: {
-        point:{
-            radius: 0
-        },
-        line: {
-            tension: 0.5
-        }
-      },
-    },
+    options: options,
   });
 
   const chart2Ctx = chartCanvas[1].getContext('2d');
