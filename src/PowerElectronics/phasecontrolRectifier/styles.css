@@ -195,7 +195,6 @@ b{
         
 .actionContainer{
     width: 100%;
-    display: flex;
     flex-direction: row;
     position: absolute;
     left: 25%;
