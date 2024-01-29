@@ -121,6 +121,7 @@ b{
 
 }
 
+
 #exit-pdf, #exit-sim {
     position: absolute;
     top: 15px;
@@ -152,13 +153,14 @@ b{
     margin-left: inherit;
 }
 
+
 #pdf-viewer {
     width: 60%;
     height: 90%;
     display: flex;
-    margin: 0px auto;
+    margin: 30px auto;
     border: 1px solid #ccc;
-    overflow-y:auto;
+    overflow-y: auto;
     flex-direction: column;
 }
   

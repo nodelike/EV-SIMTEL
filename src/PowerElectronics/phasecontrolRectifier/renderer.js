@@ -48,11 +48,19 @@ function componentActive(button){
 
 }
 
+function hideSubmenu(){
+    document.getElementById("subItemSection").style.display = "none";
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("exit-pdf").addEventListener("click", function(){
         document.getElementById(currentWindow).style.display = "block";
         document.getElementById("pdfContent").style.display = "none";
         document.getElementById('pdf-viewer').innerHTML = '';
+    });
+
+    document.getElementById("subItem").addEventListener("click", function(){
+        document.getElementById("subItemSection").style.display = "block";
     });
 });
 
