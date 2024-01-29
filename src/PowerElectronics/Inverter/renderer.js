@@ -59,7 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("pdfContent").style.display = "none";
         document.getElementById('pdf-viewer').innerHTML = '';
     });
+    document.getElementById("exit-sim").addEventListener("click", function(){
+        document.getElementById(currentWindow).style.display = "flex";
+        document.getElementById("simulation-frame").style.display = "none";
+    });
 });
+
 
 function showContent(index) {
     const paragraphs = document.querySelectorAll('#' + currentWindow + ' .topics-display p');
