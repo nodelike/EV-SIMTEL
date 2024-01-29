@@ -6,7 +6,7 @@ function showSubItems(subMenuId, menuId) {
     document.getElementById(menuId).classList.add('active');
   } else {
     document.querySelectorAll('.sub-menu').forEach(menu => menu.style.display = 'none');
-    document.querySelectorAll('.menuItem').forEach(item => item.classList.remove('active '));
+    document.querySelectorAll('.menuItem').forEach(item => item.classList.remove('active'));
   } 
   
 }
