@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('pdf-viewer').innerHTML = '';
     });
     document.getElementById("exit-sim").addEventListener("click", function(){
-        document.getElementById(currentWindow).style.display = "flex";
+        document.getElementById(currentWindow).style.display = "block";
         document.getElementById("simulation-frame").style.display = "none";
     });
 });
