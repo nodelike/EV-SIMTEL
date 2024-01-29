@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu</title>
   <link rel="stylesheet" href="../../styles.css">
@@ -75,31 +77,26 @@
           <img src="../assets/img/halfwaveacvoltagecontrol2.png" alt="Half-Wave AC Controller">
           <div class="actionContainer">
             <button class="viewPdf" onclick='loadPdf("../assets/Half_AC_V_Controller.pdf")'>View PDF</button>
-            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+            <button class="viewSimulation" onclick='startSimulation("simulations/half_WaveAC/index.html")'>Simulation</button>
             <button class="viewnumerical" onclick='loadPdf("../assets/Step_Down_Chopper.pdf")'>Numerical</button> 
           </div>
         </div>
-        
       </div>
-
-
       <div class="topicContent" id="topic4Section" style="display: none;">
         <h3 style="text-align: center;">Full-Wave AC Controller with R,RL-Load</h3>
         <hr>
         
         <div class="topics-display contentWrapper">
-          
+        
           <img src="../assets/img/fullwaveacvoltagecontrol.png" alt="Full-Wave AC Controller">
           <div class="actionContainer">
             <button class="viewPdf" onclick='loadPdf("../assets/Full_AC_V_Controller.pdf")'>View PDF</button>
-            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+            <button class="viewSimulation" onclick='startSimulation("simulations/full_WaveAC/index.html")'>Simulation</button>
             <button class="viewnumerical" onclick='loadPdf("../assets/Step_Down_Chopper.pdf")'>Numerical</button> 
           </div>
         </div>
       
       </div>
-
-      
 
       <div class="topicContent" id="topic5Section">
         <h3 style="text-align: center;">Applications</h3>
@@ -112,6 +109,11 @@
       <div id="pdfContent">
         <img src="../../shared/img/close.svg" alt="exit" id="exit-pdf">
         <div id="pdf-viewer"></div>
+      </div>
+
+      <div id="simulation-frame">
+        <img src="../../shared/img/close.svg" alt="exit" id="exit-sim">
+        <iframe id="simIframe" frameborder="0"></iframe>
       </div>
     </div>
   </div>
