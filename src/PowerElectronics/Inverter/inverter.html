@@ -76,7 +76,7 @@
           <img src="../assets/img/seriesinverter.png" alt="Series Inverter">
           <div class="actionContainer">
             <button class="viewPdf" onclick='loadPdf("../assets/SeriesInverter.pdf")'>View PDF</button>
-            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+            <button class="viewSimulation" onclick='startSimulation("simulations/seiesInverter/index.html")'>Simulation</button>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@
           <img src="../assets/img/parellelinverter.png" alt="Parellel Inverter">
           <div class="actionContainer">
             <button class="viewPdf" onclick='loadPdf("../assets/parallelInverter.pdf")'>View PDF</button>
-            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+            <button class="viewSimulation" onclick='startSimulation("simulations/parallelInverter/index.html")'>Simulation</button>
           </div>
         </div>
       
@@ -106,7 +106,7 @@
           <img src="../assets/img/bridgeinverter.png" alt="Bridge Inverter">
           <div class="actionContainer">
             <button class="viewPdf" onclick='loadPdf("../assets/bridgeInveter.pdf")'>View PDF</button>
-            <button class="viewSimulation" onclick='startSimulation()'>Simulation</button>
+            <button class="viewSimulation" onclick='startSimulation("simulations/bridgeInverter/index.html")'>Simulation</button>
           </div>
         </div>
       </div>
@@ -122,6 +122,11 @@
       <div id="pdfContent">
         <img src="../../shared/img/close.svg" alt="exit" id="exit-pdf">
         <div id="pdf-viewer"></div>
+      </div>
+
+      <div id="simulation-frame">
+        <img src="../../shared/img/close.svg" alt="exit" id="exit-sim">
+        <iframe id="simIframe" frameborder="0"></iframe>
       </div>
     </div>
   </div>

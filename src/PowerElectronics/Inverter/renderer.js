@@ -29,9 +29,10 @@ function loadPdf(url){
         console.error('Error loading PDF:', error);
     });
 }
-function startSimulation() {
+function startSimulation(url) {
     document.getElementById(currentWindow).style.display = "none"
     document.getElementById("simulation-frame").style.display = "block"
+    document.getElementById("simIframe").src = url;
   }
 
 function componentActive(button){
@@ -58,7 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("pdfContent").style.display = "none";
         document.getElementById('pdf-viewer').innerHTML = '';
     });
+    document.getElementById("exit-sim").addEventListener("click", function(){
+        document.getElementById(currentWindow).style.display = "flex";
+        document.getElementById("simulation-frame").style.display = "none";
+    });
 });
+
 
 function showContent(index) {
     const paragraphs = document.querySelectorAll('#' + currentWindow + ' .topics-display p');

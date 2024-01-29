@@ -121,8 +121,9 @@ b{
 
 }
 
-#exit-pdf {
-    position: relative;
+
+#exit-pdf, #exit-sim {
+    position: absolute;
     top: 15px;
     left: 15px;
     width: 20px;
@@ -134,7 +135,7 @@ b{
     transition: 0.2s ease-in-out;
 }
 
-#exit-pdf:hover {
+#exit-pdf:hover, #exit-sim:hover {
     filter: invert(1);
     border: 2px solid white;
 }
@@ -152,13 +153,14 @@ b{
     margin-left: inherit;
 }
 
+
 #pdf-viewer {
     width: 60%;
     height: 90%;
     display: flex;
-    margin: 0px auto;
+    margin: 30px auto;
     border: 1px solid #ccc;
-    overflow-y:auto;
+    overflow-y: auto;
     flex-direction: column;
 }
   

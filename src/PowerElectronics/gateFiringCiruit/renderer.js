@@ -29,15 +29,13 @@ function loadPdf(url){
         console.error('Error loading PDF:', error);
     });
 }
-function startSimulation() {
+function startSimulation(url) {
     document.getElementById(currentWindow).style.display = "none"
     document.getElementById("simulation-frame").style.display = "block"
+    document.getElementById("simIframe").src = url;
   }
 
-function startSimulation() {
-    document.getElementById(currentWindow).style.display = "none"
-    document.getElementById("simulation-frame").style.display = "block"
-}
+
 
 function componentActive(button){
     var liElements = document.getElementById("left-menu").querySelectorAll('li');

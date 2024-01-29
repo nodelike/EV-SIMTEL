@@ -45,7 +45,11 @@ function componentActive(button){
         }
         document.getElementById(button.id + "Section").style.display = "block";
     }
+    
+}
 
+function hideSubmenu(){
+    document.getElementById("subItemSection").style.display = "none";
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -53,6 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById(currentWindow).style.display = "block";
         document.getElementById("pdfContent").style.display = "none";
         document.getElementById('pdf-viewer').innerHTML = '';
+    });
+
+    document.getElementById("subItem").addEventListener("click", function(){
+        document.getElementById("subItemSection").style.display = "block";
     });
 });
 
@@ -64,3 +72,4 @@ function showContent(index) {
     });
     console.log(index);
 }
+
