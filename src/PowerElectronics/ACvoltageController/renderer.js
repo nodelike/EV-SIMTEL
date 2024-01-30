@@ -3,7 +3,7 @@ var currentWindow = 'topic1Section'
 function loadPdf(url){
     const pdfViewer = document.getElementById('pdf-viewer');
     document.getElementById(currentWindow).style.display = "none"
-    document.getElementById("pdfContent").style.display = "block"
+    document.getElementById("pdfContent").style.display = "flex"
 
     pdfjsLib.getDocument(url).promise.then(function (pdfDoc) {
         const totalPages = pdfDoc.numPages;
