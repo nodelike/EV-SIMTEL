@@ -1,7 +1,10 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
-
+const { dialog } = require('electron')
+const usbDetection = require('usb-detection');
 let mainWindow;
+
+const expectedHash = '070D34651CC1C079';
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -23,6 +26,27 @@ function createWindow() {
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
+
+  usbDetection.startMonitoring();
+  setInterval(checkConnectedDevices, 2000);
+
+    async function checkConnectedDevices() {
+        const devices = await usbDetection.find();
+        keys = [];
+        devices.forEach(device => {
+            const hardwareKey = device.serialNumber;
+            keys.push(hardwareKey);
+        });
+        console.log(keys);
+        if (keys.includes(expectedHash)) {
+          mainWindow.webContents.send('unlock');
+        } else {
+          mainWindow.webContents.send('lock');
+
+          await mainWindow.loadURL(path.join(__dirname, 'home.html'))
+          dialog.showErrorBox("Error: Hardware lock not found", "Please insert the hardware key.")
+        }
+    }
 }
 
 app.whenReady().then(createWindow);
