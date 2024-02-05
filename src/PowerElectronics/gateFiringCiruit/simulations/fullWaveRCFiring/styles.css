@@ -10,7 +10,7 @@ body {
 
 .app {
     display: flex;
-    width: cal(100%-20px);
+    width: calc(100% - 20px);
     justify-content: space-around;
     align-items: center;
     height: 100%;
@@ -58,12 +58,4 @@ body {
     justify-content: space-around;
     align-items: center;
     height: 100%;
-}
-
-.heading{
-    position: absolute;
-    margin: 0;
-    color: white;
-    top: 0;
-    font-size: 20px;
 }
