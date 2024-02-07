@@ -10,11 +10,12 @@ body {
 
 .app {
     display: flex;
-    width: cal(100%-20px);
+    width: calc( 100% - 20px);
     justify-content: space-around;
     align-items: center;
     height: 100%;
     margin: 20px;
+    height: calc(100% - 40px);
 }
 
 .chart-container{
@@ -55,9 +56,9 @@ body {
     flex-direction: column;
     display: flex;
     width: 50%;
-    justify-content: space-around;
     align-items: center;
     height: 100%;
+    justify-content: center;
 }
 
 .heading{
