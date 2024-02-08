@@ -1,201 +1,86 @@
-let chart1, chart2, chart3, chart4, chart5;
-let chart1data = [], chart2data = [], chart3data = [], chart4data = [], chart5data = [];
-let sliderVal;
-let numPoints;
+const TonInput = document.getElementById('TonInput');
+  const ToffInput = document.getElementById('ToffInput');
 
-function generateChartData(sliderVal) {
-  const amplitude = Math.sin(sliderVal * Math.PI / 100);
+  TonInput.addEventListener('input', () => {
+    const Ton = parseFloat(TonInput.value);
+    const Toff = 100 - Ton;
+    ToffInput.value = Toff;
+  });
+
+  ToffInput.addEventListener('input', () => {
+    const Toff = parseFloat(ToffInput.value);
+    const Ton = 100 - Toff;
+    TonInput.value = Ton;
+  });
+
+  const fInput = document.getElementById('fInput');
+  const TInput = document.getElementById('TInput');
+
+  fInput.addEventListener('input', () => {
+    TInput.disabled = !!fInput.value;
+  });
+
+  TInput.addEventListener('input', () => {
+    fInput.disabled = !!TInput.value;
+  });
+
+  const alphaInput = document.getElementById('alphaInput');
+
+  TonInput.addEventListener('input', () => {
+    alphaInput.disabled = !!TonInput.value || !!ToffInput.value;
+  });
+
+  ToffInput.addEventListener('input', () => {
+    alphaInput.disabled = !!TonInput.value || !!ToffInput.value;
+  });
+
+  alphaInput.addEventListener('input', () => {
+    if (!TonInput.value && !ToffInput.value) {
+      alphaInput.disabled = false;
+    }
+  });
+
+  function calculateValues() {
+    // Get input values and parse them as numbers
+    const Edc = parseFloat(document.getElementById('EdcInput').value);
+    const alpha = parseFloat(document.getElementById('alphaInput').value);
+    const Ton = parseFloat(document.getElementById('TonInput').value);
+    const Toff = parseFloat(document.getElementById('ToffInput').value);
+    const f = parseFloat(document.getElementById('fInput').value);
+    const T = parseFloat(document.getElementById('TInput').value);
+
+    // Calculate f and α based on provided formulas
+    const calculatedF = 1 / T || f;
+    const calculatedT = 1 / f || T;
+    const calculatedAlpha = Ton / (Ton + Toff) || alpha;
+
+    // Calculate Eo based on Edc and α
+    const calculatedEo = Edc * (1-calculatedAlpha);
+
+    // Display the calculated values
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = `
+      <p> Edc: ${Edc.toFixed(2)}</p>
+      <p> f: ${calculatedF.toFixed(2)} Hz</p>
+      <p> α: ${calculatedAlpha.toFixed(2)}</p>
+      <p> T: ${calculatedT.toFixed(2)}</p>
+      <p> To: ${Ton.toFixed(2)}</p>
+      <p> Toff: ${Toff.toFixed(2)}</p>
+      <p> Eo: ${calculatedEo.toFixed(2)}</p>
+      `;
   
-  chart1data = Array.from({ length: numPoints }, (_, i) => {
-    const xValue = i * (6 * Math.PI) / (numPoints - 1);
-    return Math.sin(xValue)
-  });
-
-  chart2data = Array.from({ length: numPoints }, (_, i) => {
-    const xValue = i * (6 * Math.PI) / (numPoints - 1);
-    const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
-    const positionInCycle = xValue % Math.PI;
-    
-    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) > Math.max(0, sliderVal * 0.01))) {
-        return sliderVal < 50 ? amplitude * Math.sin(xValue) : Math.sin(xValue);
-    } else {
-        return 0;
-    }
-  });
-  
-  chart3data = Array.from({ length: numPoints }, (_, i) => {
-    const xValue = i * (6 * Math.PI) / (numPoints - 1);
-    const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
-    const positionInCycle = xValue % Math.PI;
-    
-    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) < Math.max(0, sliderVal * 0.01))) {
-        return sliderVal < 50 ? 0 : Math.sin(xValue);
-    } else {
-        return 0;
-    }
-  });
-
-  chart4data = Array.from({ length: numPoints }, (_, i) => {
-    const xValue = i * (6 * Math.PI) / (numPoints - 1);
-    const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
-    const positionInCycle = xValue % Math.PI;
-    
-    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) < Math.max(0, sliderVal * 0.01))) {
-        return sliderVal < 50 ? 0 : Math.sin(xValue);
-    } else {
-        return 0;
-    }
-  });
-
-  chart5data = Array.from({ length: numPoints }, (_, i) => {
-    const xValue = i * (6 * Math.PI) / (numPoints - 1);
-    const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
-    const positionInCycle = xValue % Math.PI;
-    
-    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) < Math.max(0, sliderVal * 0.01))) {
-        return sliderVal > 50 ? 0 : Math.sin(xValue);
-    } else {
-        return Math.sin(xValue);
-    }
-  });
-}
-
-function updateChart(chartCanvas) {
-  let chartColors = ['rgba(153, 102, 255, 1)', 'rgba(0, 123, 255, 1)', 'rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)', 'rgba(255, 153, 0, 1)']
-  const options = {
-    plugins: {
-      legend: {
-          display: false
-      }
-  },
-    animation: false,
-    scales: {
-      x: {
-        type: 'linear',
-        position: 'bottom',
-        min: 0,
-        max: 6 * Math.PI,
-      },
-      y: {
-        display: false,
-        type: 'linear',
-        position: 'left',
-        min: -1.2,
-        max: 1.2,
-      },
-      
-    },
-    maintainAspectRatio: false,
-    elements: {
-      point:{
-          radius: 0
-      },
-      line: {
-          tension: 0.5
-      }
-    },
   }
-  
-  const chart1Ctx = chartCanvas[0].getContext('2d');
-  chart1 = new Chart(chart1Ctx, {
-    type: 'line',
-    data: {
-      labels: Array.from({ length: numPoints }, (_, i) => i * (6 * Math.PI) / (numPoints - 1)),
-      datasets: [{
-        data: chart1data,
-        borderWidth: 2,
-        borderColor: chartColors[0],
-        fill: false,
-      }]
-    },
-    options: options,
-  });
 
-  const chart2Ctx = chartCanvas[1].getContext('2d');
-  chart2 = new Chart(chart2Ctx, {
-    type: 'line',
-    data: {
-      labels: Array.from({ length: numPoints }, (_, i) => i * (6 * Math.PI) / (numPoints - 1)),
-      datasets: [{
-        data: chart2data,
-        borderWidth: 2,
-        borderColor: chartColors[2],
-        fill: false,
-      }]
-    },
-    options: options,
-  });
+  function resetValues() {
+    document.getElementById('EdcInput').value = '';
+    document.getElementById('alphaInput').value = '';
+    document.getElementById('TonInput').value = '';
+    document.getElementById('fInput').value = '';
+    document.getElementById('TInput').value = '';
+    document.getElementById('ToffInput').value = '';
+    document.getElementById('output').innerHTML = '';
 
-  const chart3Ctx = chartCanvas[2].getContext('2d');
-  chart3 = new Chart(chart3Ctx, {
-    type: 'line',
-    data: {
-      labels: Array.from({ length: numPoints }, (_, i) => i * (6 * Math.PI) / (numPoints - 1)),
-      datasets: [{
-        data: chart3data,
-        borderWidth: 2,
-        borderColor: chartColors[3],
-        fill: false,
-      }]
-    },
-    options: options,
-  });
-
-  const chart4Ctx = chartCanvas[3].getContext('2d');
-  chart4 = new Chart(chart4Ctx, {
-    type: 'line',
-    data: {
-      labels: Array.from({ length: numPoints }, (_, i) => i * (6 * Math.PI) / (numPoints - 1)),
-      datasets: [{
-        data: chart4data,
-        borderWidth: 2,
-        borderColor: chartColors[4],
-        fill: false,
-      }]
-    },
-    options: options,
-  });
-
-  const chart5Ctx = chartCanvas[4].getContext('2d');
-  chart5 = new Chart(chart5Ctx, {
-    type: 'line',
-    data: {
-      labels: Array.from({ length: numPoints }, (_, i) => i * (6 * Math.PI) / (numPoints - 1)),
-      datasets: [{
-        data: chart5data,
-        borderWidth: 2,
-        borderColor: chartColors[5],
-        fill: false,
-      }]
-    },
-    options: options,
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  const slider = document.getElementById('slider');
-  const sliderValue = document.getElementById('sliderValue');
-  const chartCanvas1 = document.getElementById('chart1');
-  const chartCanvas2 = document.getElementById('chart2');
-  const chartCanvas3 = document.getElementById('chart3');
-  const chartCanvas4 = document.getElementById('chart4');
-  const chartCanvas5 = document.getElementById('chart5');
-  numPoints = chartCanvas1.width;
-
-  let chartCanvas = [chartCanvas1, chartCanvas2, chartCanvas3, chartCanvas4, chartCanvas5]
-  generateChartData(sliderVal);
-  updateChart(chartCanvas);
-  slider.addEventListener('input', () => {
-    sliderVal = parseInt(slider.value);
-    sliderValue.innerText = 180 - parseInt(sliderVal * 0.01 * 180);
-
-    generateChartData(sliderVal);
-    chart1.destroy();
-    chart2.destroy();
-    chart3.destroy();
-    chart4.destroy();
-    chart5.destroy();
-
-    updateChart(chartCanvas);
-  });
-});
+    // Enable all input fields
+    const inputs = document.querySelectorAll('input[type="number"]');
+    inputs.forEach(input => input.disabled = false);
+  }

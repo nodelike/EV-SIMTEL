@@ -32,13 +32,3 @@ body {
     cursor: pointer;
     margin-left: 10px;
 }
-
-
-#output {
-    display: flex;
-
-}
-
-#output p{
-    margin: 20px 10px;
-}
