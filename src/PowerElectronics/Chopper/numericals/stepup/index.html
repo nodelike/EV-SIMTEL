@@ -9,33 +9,32 @@
 </head>
 <body>
   <div class="app">
-    <div class="circuitslider">
-      <h2 style="font-size: xx-large; color: white; margin: 10px 0;">Step-Up Chopper</h2>
-      <img src="../../../assets/img/Step_UP_Chopper.png" alt="Cycloconverter" style="border-radius: 14px; max-width: 100%; height: auto; margin-bottom: 15px;">
-      <div class="sliderWindow">
-        <label for="slider">R2:</label>
-        <input type="range" id="slider" min="0" max="100" value="0">
-        <span id="sliderValue">0</span>
-        <p style="font-weight: bold; margin: 0; font-size: 20px;">α</p>
+    <p><b style="color: red; font-size: 25px;">Numerical</b></p>
+    <p><b>f = <sup>1</sup>/<sub>T</sub> = <sup>1</sup>/<sub>Ton + Toff</sub></b></p>
+    <p><b>α = <sup>Ton</sup>/<sub>Ton + Toff</sub></b></p>
+    <p><b>Eo = <sup>Edc</sup>/<sub>1-α</sub></b></p>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+      <div>
+        <p><b><label for="EdcInput">Edc = </label><input type="number" id="EdcInput" name="EdcInput"></b></p>
+        <p><b><label for="alphaInput">α = </label><input type="number" id="alphaInput" name="alphaInput"></b></p>
+        <p><b><label for="TonInput">Ton = </label><input type="number" id="TonInput" name="TonInput"> %</b></p>
+      </div>
+      <div>
+        <p><b><label for="fInput">f = </label><input type="number" id="fInput" name="fInput"> Hz</b></p>
+        <p><b><label for="TInput">T = </label><input type="number" id="TInput" name="TInput"> msec.</b></p>
+        <p><b><label for="ToffInput">Toff = </label><input type="number" id="ToffInput" name="ToffInput"> %</b></p>
       </div>
     </div>
-    <div class="chartWindow">
-      <div class="chart-container">
-        <canvas id="chart1"></canvas>
-      </div>
-      <div class="chart-container">
-        <canvas id="chart2"></canvas>
-      </div>
-      <div class="chart-container">
-        <canvas id="chart3"></canvas>
-      </div>
-      <div class="chart-container">
-        <canvas id="chart4"></canvas>
-      </div>
-      <div class="chart-container">
-        <canvas id="chart5"></canvas>
-      </div>
+    <div style="display: flex; flex-direction: row;">
+      <button class="viewcalculate" onclick='calculateValues()'>Calculate</button> 
+      <button class="viewcalculate " onclick='resetValues()'>Reset</button> 
+    </div>
+    
+
+    <div id="output"></div>
   </div>
+
   </div>
   <script src="renderer.js"></script>
 </body>
