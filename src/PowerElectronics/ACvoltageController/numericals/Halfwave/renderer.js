@@ -1,24 +1,14 @@
 // Function to update α' when α° changes
 function updateAlphaPrime() {
-  // Get the value of α in degrees from the input
   var alphaDegrees = parseFloat(document.getElementById("alphaInput").value);
-  
-  // Convert α from degrees to radians
   var alphaRadians = alphaDegrees * (Math.PI / 180);
-  
-  // Update the value of α' in radians
-  document.getElementById("TonInput").value = alphaRadians.toFixed(4);
+  document.getElementById("alphaDash").value = alphaRadians.toFixed(4);
 }
 
 // Function to update α° when α' changes
 function updateAlphaDegrees() {
-  // Get the value of α' in radians from the input
-  var alphaRadians = parseFloat(document.getElementById("TonInput").value);
-  
-  // Convert α' from radians to degrees
+  var alphaRadians = parseFloat(document.getElementById("alphaDash").value);
   var alphaDegrees = alphaRadians * (180 / Math.PI);
-  
-  // Update the value of α° in degrees
   document.getElementById("alphaInput").value = alphaDegrees.toFixed(4);
 }
 
@@ -26,24 +16,18 @@ function updateAlphaDegrees() {
 document.getElementById("alphaInput").addEventListener("input", updateAlphaPrime);
 
 // Event listener for changes in α' input field
-document.getElementById("TonInput").addEventListener("input", updateAlphaDegrees);
+document.getElementById("alphaDash").addEventListener("input", updateAlphaDegrees);
 
 // Function to calculate Vs based on the provided formula
 function calculateValues() {
   // Get input values and parse them as numbers
-  const Vs = parseFloat(document.getElementById('EdcInput').value);
+  const Vs = parseFloat(document.getElementById('VsInput').value);
   const alphaDegrees = parseFloat(document.getElementById('alphaInput').value);
   const alphaRadians = alphaDegrees * (Math.PI / 180); // Convert α from degrees to radians
-  const alphaPrime = parseFloat(document.getElementById('TonInput').value);
+  const alphaPrime = parseFloat(document.getElementById('alphaDash').value);
 
   // Calculate Vs based on the provided formula
-  const Vo = Vs * Math.sqrt(1 /2 * (Math.PI * (2 *  Math.PI - alphaPrime + Math.sin(2 * alphaRadians) / 2)));
-
-  const paragraph = document.createElement('p');
-  paragraph.innerHTML = `<b>Calculated Vo: ${Vo.toFixed(4)}</b>`;
-
-  // Append the new paragraph element to the output area
-  document.getElementById("output").appendChild(paragraph);
+  const Vo = Vs * Math.sqrt(1 /(2 * Math.PI) * ( 2 * Math.PI - alphaPrime + Math.sin(2 * alphaRadians) / 2));
 
   // Display the calculated value of Vs
   document.getElementById("output").innerHTML = `<p><b>Calculated Vo: ${Vo.toFixed(4)}</b></p>`;
@@ -53,17 +37,14 @@ function calculateValues() {
 // Function to reset input values and output
 function resetValues() {
   // Reset input values
-  document.getElementById('EdcInput').value = '';
-  document.getElementById('alphaInput').value = '';
-  document.getElementById('TonInput').value = '';
   document.getElementById('VsInput').value = '';
+  document.getElementById('alphaInput').value = '';
+  document.getElementById('alphaDash').value = '';
 
-  // Clear output
+  // Disable previous output
   document.getElementById("output").innerHTML = '';
+
+  // Disable all input fields
+  const inputs = document.querySelectorAll('input[type="number"]');
+  inputs.forEach(input => input.disabled = false);
 }
-
-// Event listeners for Calculate and Reset buttons
-document.querySelector('.viewcalculate').addEventListener('click', calculateValues);
-document.querySelector('.viewcalculate').addEventListener('click', resetValues);
-
-  
