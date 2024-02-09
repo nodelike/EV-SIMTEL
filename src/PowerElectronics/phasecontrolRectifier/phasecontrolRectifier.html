@@ -181,18 +181,26 @@
 
           <div class="actionContainer" style="display: none;">
             <button class="viewPdf" onclick='loadPdf("../assets/Single_Phase_Half_Wave.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation("simulations/half/index.html")'>Simulation</button>
+            <button class="viewnumerical" onclick='startSimulation("numericals/half/index.html")'>Numerical</button> 
           </div>
           
           <div class="actionContainer" style="display: none;">
             <button class="viewPdf" onclick='loadPdf("../assets/Full_wave_rectifier.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation("simulations/full/index.html")'>Simulation</button>
+            <button class="viewnumerical" onclick='startSimulation("numericals/full/index.html")'>Numerical</button> 
           </div>
           
           <div class="actionContainer" style="display: none;">
             <button class="viewPdf" onclick='loadPdf("../assets/Semi_converter.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation("simulations/semi/index.html")'>Simulation</button>
+            <button class="viewnumerical" onclick='startSimulation("numericals/semi/index.html")'>Numerical</button> 
           </div>
           
           <div class="actionContainer" style="display: none;">
             <button class="viewPdf" onclick='loadPdf("../assets/Bridge_Rectifier.pdf")'>View PDF</button>
+            <button class="viewSimulation" onclick='startSimulation("simulations/bridge/index.html")'>Simulation</button>
+            <button class="viewnumerical" onclick='startSimulation("numericals/bridge/index.html")'>Numerical</button> 
           </div>
         </div>
       </div>
@@ -209,6 +217,11 @@
       <div id="pdfContent">
         <img src="../../shared/img/close.svg" alt="exit" id="exit-pdf">
         <div id="pdf-viewer"></div>
+      </div>
+      
+      <div id="simulation-frame">
+        <img src="../../shared/img/close.svg" alt="exit" id="exit-sim">
+        <iframe id="simIframe" frameborder="0"></iframe>
       </div>
     </div>
   </div>
