@@ -26,8 +26,15 @@ function calculateValues() {
   const alphaRadians = alphaDegrees * (Math.PI / 180); // Convert α from degrees to radians
   const alphaPrime = parseFloat(document.getElementById('alphaDash').value);
 
+  if (alphaDegrees < 0 || alphaDegrees > 180 || isNaN(alphaDegrees)) {
+    // Display error message
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = '<p style="color: red;"><b>Error: Alpha value must be between 0 and 180 degrees</b></p>';
+    return; // Exit the function early
+  }
+
   // Calculate Vs based on the provided formula
-  const Vo = Vs * Math.sqrt(1 /(Math.PI) * ( Math.PI - alphaPrime + Math.sin(2 * alphaRadians) / 2));
+  const Vo = Vs * Math.sqrt(1 /(Math.PI) * ( Math.PI - alphaRadians + Math.sin(2 * alphaRadians) / 2));
 
   // Display the calculated value of Vs
   document.getElementById("output").innerHTML = `<p><b>Calculated Vo: ${Vo.toFixed(4)}</b></p>`;
