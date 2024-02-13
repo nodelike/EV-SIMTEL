@@ -10,10 +10,10 @@ body {
 
 .app {
     display: flex;
-    width: cal(100%-20px);
+    width: calc(100%-20px);
     justify-content: space-around;
     align-items: center;
-    height: 100%;
+    height: calc(100%-20px);
     margin: 20px;
 }
 
@@ -30,13 +30,6 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 280px;
-}
-.heading{
-    position: absolute;
-    margin: 0;
-    color: white;
-    top: 0;
-    font-size: 20px;
 }
 
 .sliderWindow span {
@@ -62,7 +55,7 @@ body {
     flex-direction: column;
     display: flex;
     width: 50%;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 100%;
 }
