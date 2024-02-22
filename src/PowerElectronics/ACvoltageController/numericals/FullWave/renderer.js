@@ -1,4 +1,4 @@
-// Function to update α' when α° changes
+
 function updateAlphaPrime() {
   // Get the value of α in degrees from the input
   var alphaDegrees = parseFloat(document.getElementById("alphaInput").value);
