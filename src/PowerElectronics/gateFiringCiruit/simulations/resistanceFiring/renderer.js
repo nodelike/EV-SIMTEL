@@ -33,7 +33,7 @@ function generateChartData(sliderVal) {
   }
   });  
   chart3data = Array.from({ length: numPoints }, (_, i) => {
-    if (sliderVal < 50) {
+    if (sliderVal <= 50) {
       return 0;
     }
     else{
@@ -54,7 +54,7 @@ function generateChartData(sliderVal) {
   });
 
   chart4data = Array.from({ length: numPoints }, (_, i) => {
-    if (sliderVal < 50) {
+    if (sliderVal <= 50) {
       return 0;
     }
     else{
