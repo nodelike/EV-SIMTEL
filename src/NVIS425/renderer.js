@@ -18,9 +18,11 @@ function drawLines() {
   var batteryPositionXR = document.getElementById('batteryLabel').getBoundingClientRect().right + window.scrollX - 50;
   var batteryPositionY = document.getElementById('batteryLabel').getBoundingClientRect().bottom + window.scrollY;
 
-  var loadPositionX = document.getElementById('load-section').getBoundingClientRect().left + window.scrollX + 50;
-  var loadPositionYT = document.getElementById('load-section').getBoundingClientRect().bottom + window.scrollY - 80;
-  var loadPositionYB = document.getElementById('load-section').getBoundingClientRect().bottom + window.scrollY - 15;
+  
+  const loadPositionX = document.getElementById('load-section').getBoundingClientRect().left + window.scrollX + 50;
+  const loadPositionYT = document.getElementById('load-section').getBoundingClientRect().bottom + window.scrollY - 80;
+  const loadPositionYB = document.getElementById('load-section').getBoundingClientRect().bottom + window.scrollY - 15;
+
 
   document.getElementById('neutralCircle').setAttribute('cx', smpsPositionXL);
   document.getElementById('neutralCircle').setAttribute('cy', smpsPositionY - 160);
@@ -70,12 +72,12 @@ function drawLines() {
   document.getElementById('batteryLine2').setAttribute('y2', batteryPositionY);
 
   document.getElementById('loadLine1').setAttribute('x1', paramPositionXR);
-  document.getElementById('loadLine1').setAttribute('y1', paramPositionYT);
+  document.getElementById('loadLine1').setAttribute('y1', loadPositionYT);
   document.getElementById('loadLine1').setAttribute('x2', loadPositionX);
   document.getElementById('loadLine1').setAttribute('y2', loadPositionYT);
 
   document.getElementById('loadLine2').setAttribute('x1', paramPositionXR);
-  document.getElementById('loadLine2').setAttribute('y1', paramPositionYB);
+  document.getElementById('loadLine2').setAttribute('y1', loadPositionYB);
   document.getElementById('loadLine2').setAttribute('x2', loadPositionX);
   document.getElementById('loadLine2').setAttribute('y2', loadPositionYB);
 
@@ -109,6 +111,69 @@ function drawLines() {
   document.getElementById('load-paramNeg').setAttribute('x', paramPositionXR + 57);
   document.getElementById('load-paramNeg').setAttribute('y', paramPositionYB + 15);
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const startTour = document.getElementById('startTourBtn');
+  const nextButton = document.getElementById('nextBtn');
+  const endTourButton = document.getElementById('endTourBtn');
+  const sectionsToHighlight = ['left-column', 'center-column', 'right-column']; // IDs of sections to highlight
+  let currentStep = 0; // Track the current step of the tour
+  let tourInProgress = false;
+  
+
+  startTour.addEventListener('click', () => {
+      // Start the tour
+      if (!tourInProgress) {
+        startGuidedTour();
+        startTourButton.disabled = true; 
+        tourInProgress = true; 
+      }
+  });
+
+  nextButton.addEventListener('click', () => {
+    // Move to the next step of the tour
+    startGuidedTour();
+});
+
+endTourButton.addEventListener('click', () => {
+    // End the tour
+    resetTour();
+    startTourButton.disabled = false; // Enable the start tour button when the tour is ended
+    tourInProgress = false;
+});
+
+  function startGuidedTour() {
+      if (currentStep < sectionsToHighlight.length) {
+
+          // Hide all sections except the one to highlight
+          sectionsToHighlight.forEach(section => {
+              if (section !== sectionsToHighlight[currentStep]) {
+                  document.getElementById(section).classList.add('blurred');
+              }
+          });
+
+          // Highlight the current section
+          document.getElementById(sectionsToHighlight[currentStep]).classList.add('highlighted');
+          
+          // Increment the step
+          currentStep++;
+      } 
+     
+  }
+
+  function resetTour() {
+      // Remove blur and highlight effects from all sections
+      sectionsToHighlight.forEach(section => {
+          document.getElementById(section).classList.remove('blurred', 'highlighted');
+      });
+
+      // Reset the current step to start over
+      currentStep = 0;
+      
+  }
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const powerButton = document.getElementById('powerButton');
@@ -193,6 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     ammeter.refresh(current);
   }
+
+  
   
   setInterval(() => {
     const now = new Date().toLocaleTimeString();
@@ -305,5 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateStats();
   drawLines();
 });
+
+
 
 window.addEventListener('resize', drawLines);
