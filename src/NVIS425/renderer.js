@@ -122,39 +122,41 @@ document.addEventListener('DOMContentLoaded', () => {
   let tourInProgress = false;
   
 
+  
   startTour.addEventListener('click', () => {
       // Start the tour
       if (!tourInProgress) {
         startGuidedTour();
-        startTourButton.disabled = true; 
+        startTour.disabled = true; 
         tourInProgress = true; 
       }
   });
 
   nextButton.addEventListener('click', () => {
-    // Move to the next step of the tour
+    
     startGuidedTour();
 });
 
 endTourButton.addEventListener('click', () => {
-    // End the tour
+    
     resetTour();
-    startTourButton.disabled = false; // Enable the start tour button when the tour is ended
+    startTour.disabled = false; 
     tourInProgress = false;
 });
 
   function startGuidedTour() {
       if (currentStep < sectionsToHighlight.length) {
 
-          // Hide all sections except the one to highlight
+          
           sectionsToHighlight.forEach(section => {
               if (section !== sectionsToHighlight[currentStep]) {
                   document.getElementById(section).classList.add('blurred');
               }
           });
+          
 
-          // Highlight the current section
           document.getElementById(sectionsToHighlight[currentStep]).classList.add('highlighted');
+          
           
           // Increment the step
           currentStep++;
@@ -163,12 +165,12 @@ endTourButton.addEventListener('click', () => {
   }
 
   function resetTour() {
-      // Remove blur and highlight effects from all sections
+     
       sectionsToHighlight.forEach(section => {
           document.getElementById(section).classList.remove('blurred', 'highlighted');
+         
       });
 
-      // Reset the current step to start over
       currentStep = 0;
       
   }
