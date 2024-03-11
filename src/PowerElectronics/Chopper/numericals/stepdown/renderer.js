@@ -49,6 +49,20 @@ const TonInput = document.getElementById('TonInput');
     const f = parseFloat(document.getElementById('fInput').value);
     const T = parseFloat(document.getElementById('TInput').value);
 
+  if (Ton < 0 || Ton > 100 || Toff < 0 || Toff > 100) {
+    // Display error message
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = '<p style="color: red;"><b>Error: Ton and Toff must be in the range 0 to 100.</b></p>';
+    return;
+  }
+
+  if (alpha < 0 || alpha > 1) {
+    // Display error message
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = '<p style="color: red;"><b>Error: α must be in the range 0 to 1.</b></p>';
+    return;
+  }
+
     // Calculate f and α based on provided formulas
     const calculatedF = 1 / T || f;
     const calculatedT = 1 / f || T;

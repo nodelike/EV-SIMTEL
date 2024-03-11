@@ -7,82 +7,49 @@ function generateChartData(sliderVal) {
   const amplitude = Math.sin(sliderVal * Math.PI / 100);
   
   chart1data = Array.from({ length: numPoints }, (_, i) => {
-    const xValue = i * (9.5 * Math.PI) / (numPoints - 1);
-    return Math.sin(xValue);
+    const xValue = i * (6 * Math.PI) / (numPoints - 1);
+    return Math.sin(xValue)
   });
 
   chart2data = Array.from({ length: numPoints }, (_, i) => {
-    const xValue = i * (9.5 * Math.PI) / (numPoints - 1);
+    const xValue = i * (6 * Math.PI) / (numPoints - 1);
+    const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
+    
+    if (isOddCycle) {
+        return 1;
+    } else {
+        return 0;
+    }
+  });
+  
+  chart3data = Array.from({ length: numPoints }, (_, i) => {
+    const xValue = i * (6 * Math.PI) / (numPoints - 1);
     const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
     const positionInCycle = xValue % Math.PI;
-
-    if (isOddCycle && sliderVal >= 0 && sliderVal <= 50) {
-      const decreaseFactor = (50 - sliderVal) / 50;
-      return (1 - decreaseFactor) * Math.sin(xValue) / 2.5;
-    }
-  else{
-    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) < Math.max(0, (sliderVal-11.25) * 0.01))) {
-      return sliderVal > 50 ? 0 : (Math.sin(xValue)/2.5);
-    }
-    if(isOddCycle == 0){
-      return 0;
-    }
-    else {
-      return (Math.sin(xValue)/2.5);
-    }
-  }
-  });  
-  chart3data = Array.from({ length: numPoints }, (_, i) => {
-    if (sliderVal <= 50) {
-      return 0;
-    }
-    else{
-      const xValue = i * (9.5 * Math.PI) / (numPoints - 1);
-      const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
-      const positionInCycle = xValue % Math.PI;
-
-      if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) > Math.max(0, (sliderVal-11.25) * 0.01))) {
-        return sliderVal > 50 ? 0 : Math.sin(xValue);
-      }
-      if(isOddCycle == 0){
-        return 0;
-      }
-      else{
-        return Math.sin(xValue);
-      }
-    }
+    
+    return positionInCycle / Math.PI;
   });
 
   chart4data = Array.from({ length: numPoints }, (_, i) => {
-    if (sliderVal <= 50) {
-      return 0;
-    }
-    else{
-      const xValue = i * (9.5 * Math.PI) / (numPoints - 1);
-      const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
-      const positionInCycle = xValue % Math.PI;
-
-      if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) > Math.max(0, (sliderVal-11.25) * 0.01))) {
-        return sliderVal > 50 ? 0 : (Math.sin(xValue)/2.5);
-      }
-      if(isOddCycle == 0){
+    const xValue = i * (6 * Math.PI) / (numPoints - 1);
+    const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
+    const positionInCycle = xValue % Math.PI;
+    
+    if (isOddCycle && (1 - ((positionInCycle % (Math.PI/3)) / (Math.PI/3) ) > Math.max(0, sliderVal * 0.01))) {
+        return 1;
+    } else {
         return 0;
-      }
-      else{
-        return (Math.sin(xValue)/2.5);
-      }
     }
   });
 
   chart5data = Array.from({ length: numPoints }, (_, i) => {
-    const xValue = i * (9.5 * Math.PI) / (numPoints - 1);
+    const xValue = i * (6 * Math.PI) / (numPoints - 1);
     const isOddCycle = Math.floor(xValue / Math.PI) % 2 === 0;
     const positionInCycle = xValue % Math.PI;
-  
-    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) < Math.max(0, (sliderVal-11.25) * 0.01))) {
+    
+    if (isOddCycle && (sliderVal < 50 || 1 - (positionInCycle / Math.PI) < Math.max(0, sliderVal * 0.01))) {
         return sliderVal > 50 ? 0 : Math.sin(xValue);
-    }
-    else {
+    } else {
         return Math.sin(xValue);
     }
   });
@@ -103,18 +70,13 @@ function updateChart(chartCanvas) {
         position: 'bottom',
         min: 0,
         max: 6 * Math.PI,
-        ticks: {
-          callback: function(value, index, values) {
-            return index === 0 ? '0' : index + 'π';
-          }
-        }
       },
       y: {
-        display: true,
+        display: false,
         type: 'linear',
         position: 'left',
-        min: -1,
-        max: 1,
+        min: -0.01,
+        max: 1.2,
       },
       
     },
@@ -141,7 +103,39 @@ function updateChart(chartCanvas) {
         fill: false,
       }]
     },
-    options: options,
+    options: {
+      plugins: {
+        legend: {
+            display: false
+        }
+      },
+      animation: false,
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom',
+          min: 0,
+          max: 6 * Math.PI,
+        },
+        y: {
+          display: false,
+          type: 'linear',
+          position: 'left',
+          min: -1.2,
+          max: 1.2,
+        },
+        
+      },
+      maintainAspectRatio: false,
+      elements: {
+        point:{
+            radius: 0
+        },
+        line: {
+            tension: 0.5
+        }
+      },
+    },
   });
 
   const chart2Ctx = chartCanvas[1].getContext('2d');
