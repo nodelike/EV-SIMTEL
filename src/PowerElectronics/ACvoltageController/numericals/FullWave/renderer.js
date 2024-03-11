@@ -1,4 +1,4 @@
-// Function to update α' when α° changes
+
 function updateAlphaPrime() {
   var alphaDegrees = parseFloat(document.getElementById("alphaInput").value);
   var alphaRadians = alphaDegrees * (Math.PI / 180);

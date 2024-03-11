@@ -22,6 +22,7 @@
     <svg class="svgOverlay">
       <circle id="neutralCircle" r="8" stroke="black" stroke-width="2" fill="black" />
       <circle id="liveCircle" r="8" stroke="black" stroke-width="2" fill="red" />
+      
 
       <line class="lines" id="mainLine1"/>
       <line class="lines" id="mainLine2"/>
@@ -34,8 +35,9 @@
       <line class="lines" id="batteryLine1"/>
       <line class="lines" id="batteryLine2"/>
 
-      <line class="lines" id="loadLine1"/>
-      <line class="lines" id="loadLine2"/>
+      <line class="lines" id="loadLine1" />
+      <line class="lines" id="loadLine2" />
+       
 
       <text class="svgLabels" id="main-smpsText">230v AC</text>
       <text class="svgLabels" id="smps-paramText">12V DC to Charge Controller</text>
@@ -51,6 +53,7 @@
       <text class="svgLabels" id="load-paramPos">+</text>
       <text class="svgLabels" id="load-paramNeg">-</text>
     </svg>
+ 
     <div id="left-column">
       <button id="powerButton">Power</button>
       <p>230V AC</p>
@@ -110,8 +113,12 @@
           </div>
         </div>
       </div>
+      
     </div>
   </div>
+  <button class="startTour" id ="startTourBtn" >Start Tour</button>
+  <button class="nextButton" id ="nextBtn" >Next</button>
+  <button class="endTourButton" id ="endTourBtn" >End Tour</button>
   <script src="renderer.js"></script>
 </body>
 </html>
