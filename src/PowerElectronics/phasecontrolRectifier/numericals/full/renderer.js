@@ -4,8 +4,14 @@ function calculateValues() {
   const Em = parseFloat(document.getElementById('EmInput').value);
   const alphaDegrees = parseFloat(document.getElementById('alphaInput').value);
 
-  const alphaRadians = alphaDegrees * (Math.PI / 180);
+  if (alphaDegrees < 0 || alphaDegrees > 180 || isNaN(alphaDegrees)) {
+    // Display error message
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = '<p style="color: red;"><b>Error: Alpha value must be between 0 and 180 degrees</b></p>';
+    return; // Exit the function early
+  }
 
+  const alphaRadians = alphaDegrees * (Math.PI / 180);
 
   // Calculate Vs based on the provided formula 
   const Edc = (2 * Em * Math.cos(alphaRadians)) / Math.PI;
