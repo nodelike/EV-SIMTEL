@@ -110,7 +110,7 @@ function drawLines() {
   document.getElementById('load-paramPos').setAttribute('y', paramPositionYT - 10);
   document.getElementById('load-paramNeg').setAttribute('x', paramPositionXR + 57);
   document.getElementById('load-paramNeg').setAttribute('y', paramPositionYB + 15);
-}
+} 
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
   nextButton.addEventListener('click', () => {
     
     startGuidedTour();
+    
 });
 
 endTourButton.addEventListener('click', () => {

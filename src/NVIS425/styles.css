@@ -263,7 +263,7 @@
 .startTour{
   position: absolute;
   left: 15px;
-  top: 50px;
+  bottom: 20px;
   font-size: 14px;
   padding: 8px 15px;
   background: #00988e;
@@ -277,7 +277,7 @@
 .nextButton{
   position: absolute;
   left: 150px;
-  top: 50px;
+  bottom: 20px;
   font-size: 14px;
   padding: 8px 15px;
   background: #00988e;
@@ -291,7 +291,7 @@
 .endTourButton{
   position: absolute;
   left: 250px;
-  top: 50px;
+  bottom: 20px;
   font-size: 14px;
   padding: 8px 15px;
   background: #00988e;
