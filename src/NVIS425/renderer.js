@@ -126,41 +126,50 @@ document.addEventListener('DOMContentLoaded', () => {
       // Start the tour
       if (!tourInProgress) {
         startGuidedTour();
-        startTourButton.disabled = true; 
-        tourInProgress = true; 
+        startTour.disabled = true; 
+        tourInProgress = true;
+
       }
   });
 
   nextButton.addEventListener('click', () => {
     // Move to the next step of the tour
+    if (!tourInProgress) {
+      nextButton.textContent = 'Next';
+  }    if (tourInProgress) {
+    nextButton.textContent = 'Start';
+} 
     startGuidedTour();
 });
 
 endTourButton.addEventListener('click', () => {
     // End the tour
     resetTour();
-    startTourButton.disabled = false; // Enable the start tour button when the tour is ended
+    startTour.disabled = false; // Enable the start tour button when the tour is ended
     tourInProgress = false;
 });
 
-  function startGuidedTour() {
-      if (currentStep < sectionsToHighlight.length) {
+function startGuidedTour() {
+  if (currentStep < sectionsToHighlight.length) {
 
-          // Hide all sections except the one to highlight
-          sectionsToHighlight.forEach(section => {
-              if (section !== sectionsToHighlight[currentStep]) {
-                  document.getElementById(section).classList.add('blurred');
-              }
-          });
+      // Blur all sections
+      sectionsToHighlight.forEach(section => {
+          document.getElementById(section).classList.add('blurred');
+      });
 
-          // Highlight the current section
-          document.getElementById(sectionsToHighlight[currentStep]).classList.add('highlighted');
-          
-          // Increment the step
-          currentStep++;
-      } 
-     
+      // Highlight the current section
+      document.getElementById(sectionsToHighlight[currentStep]).classList.remove('blurred');
+
+
+      // Increment the step
+      currentStep++;
+  } else {
+      // If the tour reaches its end, reset the tour
+      resetTour();
+      startTour.disabled = false; // Enable the start tour button when the tour is ended
+      tourInProgress = false;
   }
+}
 
   function resetTour() {
       // Remove blur and highlight effects from all sections
