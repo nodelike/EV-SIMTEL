@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let chartCanvas = [chartCanvas1, chartCanvas2, chartCanvas3, chartCanvas4, chartCanvas5];
 
-  generateChartData(sliderVal);
+  generateChartData(50);
   updateChart(chartCanvas);
 
   slider.addEventListener('input', () => {
